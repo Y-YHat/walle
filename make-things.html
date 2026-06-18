@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Walle — Make Things</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* Walle shared styles — tokens, nav, footer, lesson components */
+:root{
+  --ink:#1a1613;
+  --ink-soft:#4a423b;
+  --canvas:#f8f1e7;
+  --paper:#fffaf2;
+  --blue:#2f49ff;
+  --blue-deep:#1f31b8;
+  --pink:#ff4d8d;
+  --lime:#c6f53b;
+  --yellow:#ffc73a;
+  --sky:#7ed0ff;
+  --line:rgba(26,22,19,0.14);
+  --shadow:8px 8px 0 var(--ink);
+  --shadow-sm:4px 4px 0 var(--ink);
+  --radius:22px;
+  --maxw:1180px;
+  --display:"Unbounded",system-ui,sans-serif;
+  --body:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);background:var(--canvas);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;width:100%;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--lime);color:var(--ink);}
+
+/* background blobs */
+.bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.85;mix-blend-mode:multiply;}
+.b1{width:520px;height:520px;background:var(--blue);top:-180px;right:-120px;animation:float1 16s ease-in-out infinite;}
+.b2{width:360px;height:360px;background:var(--pink);top:38%;left:-150px;animation:float2 19s ease-in-out infinite;}
+.b3{width:300px;height:300px;background:var(--lime);bottom:-120px;right:8%;animation:float1 22s ease-in-out infinite;}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-40px,40px) scale(1.08);}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(50px,-30px) scale(1.12);}}
+.grain{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+main,header{position:relative;z-index:1;}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgba(248,241,231,0.72);border-bottom:2px solid var(--ink);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px;}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:25px;letter-spacing:-.02em;flex:none;}
+.brand .mark{width:34px;height:34px;border-radius:50%;background:var(--blue);border:2px solid var(--ink);position:relative;flex:none;}
+.brand .mark::before,.brand .mark::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--paper);top:11px;}
+.brand .mark::before{left:7px;}
+.brand .mark::after{right:7px;animation:blink 5s infinite;}
+@keyframes blink{0%,92%,100%{transform:scaleY(1);}96%{transform:scaleY(.1);}}
+.nav-links{display:flex;align-items:center;gap:4px;flex:1;justify-content:center;flex-wrap:wrap;}
+.nav-links a{display:inline-block;white-space:nowrap;font-family:var(--body);font-weight:700;font-size:14px;padding:7px 13px;border-radius:999px;border:2px solid transparent;transition:background .12s,border-color .12s;}
+.nav-links a:hover{background:var(--yellow);border-color:var(--ink);}
+.nav-links a.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.nav-right{display:flex;align-items:center;gap:14px;flex:none;}
+.lang{display:flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden;background:var(--paper);font-family:var(--display);font-weight:600;font-size:13px;}
+.lang button{border:0;background:transparent;padding:7px 13px;cursor:pointer;color:var(--ink);font:inherit;transition:background .15s;}
+.lang button.active{background:var(--ink);color:var(--paper);}
+
+/* buttons */
+.btn{font-family:var(--display);font-weight:700;cursor:pointer;border:2px solid var(--ink);border-radius:999px;display:inline-flex;align-items:center;gap:9px;transition:transform .12s ease,box-shadow .12s ease;}
+.btn:active{transform:translate(2px,2px);}
+.btn-primary{background:var(--blue);color:#fff;padding:12px 22px;font-size:15px;box-shadow:var(--shadow-sm);}
+.btn-primary:hover{box-shadow:6px 6px 0 var(--ink);transform:translate(-1px,-1px);}
+.btn-ghost{background:var(--paper);color:var(--ink);padding:12px 22px;font-size:15px;}
+.btn-ghost:hover{background:var(--yellow);}
+
+/* footer */
+footer{border-top:2px solid var(--ink);padding:40px 0;background:var(--paper);position:relative;z-index:1;margin-top:auto;}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.foot .f-brand{font-family:var(--display);font-weight:700;font-size:16px;}
+.foot .f-note{font-size:14px;color:var(--ink-soft);font-weight:500;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+
+/* ---------- lesson page components ---------- */
+.lesson-hero{padding:58px 0 14px;}
+.crumb{font-family:var(--display);font-weight:600;font-size:13px;color:var(--ink-soft);display:inline-flex;gap:8px;align-items:center;}
+.crumb a:hover{color:var(--blue);}
+.lesson-badge{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);border-radius:999px;padding:7px 16px;font-family:var(--display);font-weight:700;font-size:13px;box-shadow:var(--shadow-sm);transform:rotate(-1.5deg);margin-top:20px;}
+.lesson-hero h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.6vw,64px);line-height:1;letter-spacing:-.03em;margin-top:20px;max-width:18ch;text-wrap:balance;}
+.lesson-hero .lede{font-size:clamp(16px,1.9vw,20px);color:var(--ink-soft);max-width:54ch;margin-top:20px;font-weight:500;}
+
+/* step cards */
+.steps{display:flex;flex-direction:column;gap:22px;padding:38px 0 10px;}
+.step{background:var(--paper);border:2.5px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;}
+.step-head{display:flex;align-items:center;gap:14px;padding:20px 26px;border-bottom:2px solid var(--ink);}
+.step-num{flex:none;width:42px;height:42px;border-radius:12px;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:17px;background:var(--yellow);}
+.step:nth-child(2) .step-num{background:var(--lime);}
+.step:nth-child(3) .step-num{background:var(--pink);color:#fff;}
+.step:nth-child(4) .step-num{background:var(--sky);}
+.step-head h2{font-family:var(--display);font-weight:800;font-size:clamp(19px,2.4vw,25px);letter-spacing:-.02em;line-height:1.05;}
+.step-body{padding:22px 26px 26px;}
+.step-body p{font-weight:500;font-size:16px;max-width:62ch;}
+.step-body p + p{margin-top:12px;}
+.step-body .tip{margin-top:16px;padding:13px 17px;background:var(--canvas);border:2px dashed var(--ink);border-radius:12px;font-family:var(--display);font-weight:600;font-size:14.5px;display:flex;gap:10px;align-items:baseline;max-width:62ch;}
+.step-body .tip .star{color:var(--pink);flex:none;}
+
+/* before/after compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+.compare .pane{border:2px solid var(--ink);border-radius:14px;padding:16px 18px;background:var(--canvas);}
+.compare .pane .pane-tag{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:inline-block;padding:3px 10px;border-radius:999px;border:2px solid var(--ink);}
+.compare .pane.bad .pane-tag{background:#ffd9d9;}
+.compare .pane.good .pane-tag{background:var(--lime);}
+.compare .pane .pane-text{margin-top:11px;font-weight:600;font-size:15px;line-height:1.45;}
+.compare .pane .pane-note{margin-top:9px;font-size:13px;color:var(--ink-soft);font-weight:600;}
+
+/* quiz */
+.quiz{margin:48px 0 10px;background:var(--ink);color:var(--paper);border-radius:var(--radius);border:2.5px solid var(--ink);overflow:hidden;}
+.quiz-head{padding:24px 28px 18px;}
+.quiz-kicker{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);}
+.quiz-head h2{font-family:var(--display);font-weight:800;font-size:clamp(21px,2.8vw,30px);letter-spacing:-.02em;margin-top:8px;line-height:1.05;}
+.quiz-body{padding:4px 28px 28px;}
+.quiz-q{font-weight:600;font-size:17px;margin-bottom:16px;color:rgba(255,250,242,.92);}
+.quiz-opts{display:flex;flex-direction:column;gap:10px;}
+.quiz-opt{text-align:left;font-family:var(--body);font-weight:700;font-size:15.5px;padding:14px 18px;border:2px solid rgba(255,250,242,.35);border-radius:13px;background:rgba(255,250,242,.05);color:var(--paper);cursor:pointer;transition:border-color .12s,background .12s,transform .12s;}
+.quiz-opt:hover{border-color:var(--lime);transform:translateX(4px);}
+.quiz-opt.correct{background:var(--lime);color:var(--ink);border-color:var(--lime);}
+.quiz-opt.wrong{background:var(--pink);color:#fff;border-color:var(--pink);}
+.quiz-opt:disabled{cursor:default;}
+.quiz-feedback{margin-top:16px;font-family:var(--display);font-weight:600;font-size:15px;padding:14px 18px;border-radius:12px;border:2px dashed rgba(255,250,242,.4);display:none;}
+.quiz-feedback.show{display:block;animation:pop .35s cubic-bezier(.2,1.3,.5,1) both;}
+.quiz-progress{font-family:var(--display);font-weight:600;font-size:12.5px;color:rgba(255,250,242,.6);margin-bottom:10px;}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98);}to{opacity:1;transform:none;}}
+
+/* next lesson footer band */
+.next-band{padding:46px 0 80px;}
+.next-card{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:var(--blue);color:#fff;border:2.5px solid var(--ink);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);transition:transform .14s,box-shadow .14s;}
+.next-card:hover{transform:translate(-2px,-3px);box-shadow:10px 11px 0 var(--ink);}
+.next-card .n-label{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;}
+.next-card .n-title{font-family:var(--display);font-weight:800;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-top:6px;}
+.next-card .n-arrow{font-family:var(--display);font-weight:800;font-size:34px;flex:none;}
+
+@media(max-width:760px){
+  .nav-links{display:none;}
+  .compare{grid-template-columns:1fr;}
+  .lesson-hero{padding-top:40px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;}
+  .reveal{opacity:1;transform:none;}
+}
+
+</style>
+</head>
+<body data-lang="en">
+  <div class="bg-layer" aria-hidden="true">
+    <div class="blob b1" style="background:var(--pink);"></div>
+    <div class="blob b2" style="background:var(--yellow);"></div>
+    <div class="grain"></div>
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><span class="mark"></span>Walle</a>
+      <nav class="nav-links" id="nav-links"></nav>
+      <div class="nav-right">
+        <div class="lang" role="group" aria-label="Language">
+          <button data-setlang="en" class="active">EN</button>
+          <button data-setlang="bg">БГ</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="lesson-hero">
+      <div class="wrap">
+        <div class="crumb"><a href="index.html" data-en="← Home" data-bg="← Начало">← Home</a></div>
+        <span class="lesson-badge" style="background:var(--pink);color:#fff;" data-en="Lesson 03 · 5 min" data-bg="Урок 03 · 5 мин">Lesson 03 · 5 min</span>
+        <h1 data-en="Make actual things" data-bg="Създавай истински неща">Make actual things</h1>
+        <p class="lede" data-en="Music, art, apps, videos — the distance between 'I have an idea' and 'I made a thing' has never been shorter. Here's how to cross it." data-bg="Музика, изкуство, приложения, видео — пътят от „имам идея“ до „взех че го направих“ никога не е бил по-кратък. Ето как да го извървиш.">Music, art, apps, videos — the distance between 'I have an idea' and 'I made a thing' has never been shorter. Here's how to cross it.</p>
+      </div>
+    </section>
+
+    <section class="wrap steps">
+      <article class="step reveal">
+        <div class="step-head"><span class="step-num">01</span><h2 data-en="Start embarrassingly small" data-bg="Започни от смешно малкото">Start embarrassingly small</h2></div>
+        <div class="step-body">
+          <p data-en="Don't 'make an album' — make 8 seconds of a beat. Don't 'build an app' — make a button that does one thing. AI is amazing at turning tiny ideas into working first drafts, and tiny wins stack fast." data-bg="Не се захващай с „албум“ — направи 8 секунди бийт. Не „строй приложение“ — направи един бутон, който върши едно нещо. AI е страхотен в превръщането на дребни идеи в работещи първи версии, а малките победи бързо се трупат.">Don't 'make an album' — make 8 seconds of a beat. Don't 'build an app' — make a button that does one thing. AI is amazing at turning tiny ideas into working first drafts, and tiny wins stack fast.</p>
+          <div class="tip"><span class="star">✦</span><span data-en="Finished and small beats perfect and imaginary. Every time." data-bg="Малкото, но завършено, винаги бие голямото, но въображаемо.">Finished and small beats perfect and imaginary. Every time.</span></div>
+        </div>
+      </article>
+
+      <article class="step reveal">
+        <div class="step-head"><span class="step-num">02</span><h2 data-en="You're the director, not the typist" data-bg="Ти си режисьорът, не машинописецът">You're the director, not the typist</h2></div>
+        <div class="step-body">
+          <p data-en="AI generates options; you make the calls. Which version is better? What's missing? What feels off? That judgment is called taste — and it's the one part AI can't do for you." data-bg="AI генерира варианти; ти взимаш решенията. Коя версия е по-добра? Какво липсва? Кое не е наред? Тази преценка се нарича вкус — и е единствената част, която AI не може да свърши вместо теб.">AI generates options; you make the calls. Which version is better? What's missing? What feels off? That judgment is called taste — and it's the one part AI can't do for you.</p>
+          <div class="compare">
+            <div class="pane bad">
+              <span class="pane-tag" data-en="Typist" data-bg="Машинописец">Typist</span>
+              <div class="pane-text" data-en="“Make me a song.” → accepts whatever comes out" data-bg="„Направи ми песен.“ → приема каквото излезе">“Make me a song.” → accepts whatever comes out</div>
+            </div>
+            <div class="pane good">
+              <span class="pane-tag" data-en="Director" data-bg="Режисьор">Director</span>
+              <div class="pane-text" data-en="“Darker. Slower intro. Keep the hook, cut verse 2.” → it's yours now" data-bg="„По-мрачно. По-бавно интро. Запази припева, махни втория куплет.“ → вече е твое">“Darker. Slower intro. Keep the hook, cut verse 2.” → it's yours now</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="step reveal">
+        <div class="step-head"><span class="step-num">03</span><h2 data-en="Say what AI did. Own what you did." data-bg="Признай какво е направил AI. Гордей се с твоето.">Say what AI did. Own what you did.</h2></div>
+        <div class="step-body">
+          <p data-en="Used AI for the artwork? Say so. Wrote the melody yourself? Own it loudly. Creators who are honest about their process get trusted — and trust is the whole currency of making things." data-bg="Ползвал си AI за обложката? Кажи го. Сам си написал мелодията? Заяви го на висок глас. Хората вярват на създатели, които са честни за процеса си — а доверието е най-ценната валута, когато твориш.">Used AI for the artwork? Say so. Wrote the melody yourself? Own it loudly. Creators who are honest about their process get trusted — and trust is the whole currency of making things.</p>
+          <div class="tip"><span class="star">✦</span><span data-en="“AI helped” is a normal sentence now. “AI made it, I said I did” is not." data-bg="„AI ми помогна“ е съвсем нормално изречение. „AI го направи, но казах, че съм аз“ — не е.">“AI helped” is a normal sentence now. “AI made it, I said I did” is not.</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="wrap">
+      <div class="quiz reveal" id="quiz"></div>
+    </section>
+
+    <section class="wrap next-band">
+      <a class="next-card reveal" href="ai-for-school.html" style="background:var(--yellow);color:var(--ink);">
+        <div>
+          <div class="n-label" data-en="Next lesson" data-bg="Следващ урок">Next lesson</div>
+          <div class="n-title" data-en="Use it for school, honestly" data-bg="Ползвай го за училище — честно">Use it for school, honestly</div>
+        </div>
+        <span class="n-arrow">→</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="f-brand"><span data-en="Walle · AI literacy for students in Bulgaria" data-bg="Walle · AI грамотност за ученици в България">Walle · AI literacy for students in Bulgaria</span></div>
+      <div class="f-note" data-en="Made with caffeine and good intentions." data-bg="Направено с кофеин и добри намерения.">Made with caffeine and good intentions.</div>
+    </div>
+  </footer>
+
+<script>
+/* Walle shared JS — nav, i18n, reveal, quiz engine */
+(function(){
+  "use strict";
+
+  /* ---------- nav ---------- */
+  var PAGES = [
+    {file:"index.html", en:"Home",            bg:"Начало"},
+    {file:"prompting.html",          en:"Prompting",       bg:"Промптинг"},
+    {file:"spot-the-fakes.html",     en:"Spot the fakes",  bg:"Разпознай фалшивото"},
+    {file:"make-things.html",        en:"Make things",     bg:"Създавай"},
+    {file:"ai-for-school.html",      en:"For school",      bg:"За училище"},
+    {file:"fine-print.html",         en:"The fine print",  bg:"Дребният шрифт"}
+  ];
+
+  function currentFile(){
+    var p = decodeURIComponent(location.pathname);
+    return p.substring(p.lastIndexOf("/")+1) || PAGES[0].file;
+  }
+
+  function buildNav(){
+    var slot = document.getElementById("nav-links");
+    if(!slot) return;
+    var cur = currentFile();
+    PAGES.forEach(function(pg){
+      var a = document.createElement("a");
+      a.href = pg.file;
+      a.setAttribute("data-en", pg.en);
+      a.setAttribute("data-bg", pg.bg);
+      a.textContent = pg.en;
+      if(pg.file === cur) a.className = "active";
+      slot.appendChild(a);
+    });
+  }
+
+  /* ---------- i18n ---------- */
+  var lang = "en";
+  try { var saved = localStorage.getItem("walle-lang"); if(saved==="en"||saved==="bg") lang = saved; } catch(e){}
+
+  function applyLang(){
+    document.body.setAttribute("data-lang", lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-en]").forEach(function(el){
+      var v = el.getAttribute("data-"+lang);
+      if(v!=null) el.innerHTML = v;
+    });
+    document.querySelectorAll("[data-en-ph]").forEach(function(el){
+      var v = el.getAttribute("data-"+lang+"-ph");
+      if(v!=null) el.setAttribute("placeholder", v);
+    });
+    document.querySelectorAll("[data-setlang]").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-setlang")===lang);
+    });
+    try { localStorage.setItem("walle-lang", lang); } catch(e){}
+    document.dispatchEvent(new CustomEvent("walle:lang", {detail:{lang:lang}}));
+  }
+
+  function wireLang(){
+    document.querySelectorAll("[data-setlang]").forEach(function(b){
+      b.addEventListener("click", function(){ lang = b.getAttribute("data-setlang"); applyLang(); });
+    });
+  }
+
+  /* ---------- reveal (with fail-safe) ---------- */
+  function wireReveal(){
+    var reveals = document.querySelectorAll(".reveal");
+    function revealAll(){ reveals.forEach(function(el){ el.classList.add("in"); }); }
+    if("IntersectionObserver" in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+      }, {threshold:0.08, rootMargin:"0px 0px -8% 0px"});
+      reveals.forEach(function(el){ io.observe(el); });
+      setTimeout(revealAll, 1600);
+    } else { revealAll(); }
+  }
+
+  /* ---------- quiz engine ----------
+     Mount with: WalleQuiz(containerEl, {
+       kicker:{en,bg}, title:{en,bg},
+       questions:[{q:{en,bg}, opts:[{en,bg}...], correct:i, right:{en,bg}, wrong:{en,bg}}]
+     })
+  ----------------------------------- */
+  function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+
+  window.WalleQuiz = function(el, cfg){
+    var idx = 0, score = 0;
+    var UI = {
+      progress:{en:"Question", bg:"Въпрос"},
+      of:{en:"of", bg:"от"},
+      next:{en:"Next →", bg:"Напред →"},
+      done:{en:"See my result", bg:"Виж резултата"},
+      again:{en:"Play again", bg:"Играй пак"},
+      score:{en:"You got", bg:"Позна"},
+      outof:{en:"out of", bg:"от"}
+    };
+    function t(o){ return o[lang] || o.en; }
+
+    function finalLine(){
+      var n = cfg.questions.length;
+      var msgs = score===n
+        ? {en:"Perfect score. Honestly? Suspiciously good. 🏆", bg:"Пълно попадение. Чак подозрително добре. 🏆"}
+        : score >= Math.ceil(n/2)
+        ? {en:"Solid. You're harder to fool than most adults. 💪", bg:"Стабилно. Лъжеш се по-трудно от повечето възрастни. 💪"}
+        : {en:"Hey, that's why lessons exist. Run it back. 🔁", bg:"Е, затова има уроци. Пробвай пак. 🔁"};
+      return t(msgs);
+    }
+
+    function render(){
+      var html = '<div class="quiz-head">';
+      html += '<div class="quiz-kicker">'+esc(t(cfg.kicker))+'</div>';
+      html += '<h2>'+esc(t(cfg.title))+'</h2></div>';
+      html += '<div class="quiz-body">';
+      if(idx < cfg.questions.length){
+        var q = cfg.questions[idx];
+        html += '<div class="quiz-progress">'+esc(t(UI.progress))+' '+(idx+1)+' '+esc(t(UI.of))+' '+cfg.questions.length+'</div>';
+        html += '<div class="quiz-q">'+esc(t(q.q))+'</div>';
+        html += '<div class="quiz-opts">';
+        q.opts.forEach(function(o,i){
+          html += '<button type="button" class="quiz-opt" data-i="'+i+'">'+esc(t(o))+'</button>';
+        });
+        html += '</div><div class="quiz-feedback"></div>';
+      } else {
+        html += '<div class="quiz-q" style="font-family:var(--display);font-weight:800;font-size:24px;">'
+              + esc(t(UI.score))+' '+score+' '+esc(t(UI.outof))+' '+cfg.questions.length+'. '+esc(finalLine())
+              + '</div>';
+        html += '<button type="button" class="quiz-opt" data-again="1" style="max-width:220px;">'+esc(t(UI.again))+'</button>';
+      }
+      html += '</div>';
+      el.innerHTML = html;
+      wire();
+    }
+
+    function wire(){
+      var q = cfg.questions[idx];
+      el.querySelectorAll(".quiz-opt").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          if(btn.hasAttribute("data-again")){ idx=0; score=0; render(); return; }
+          var i = +btn.getAttribute("data-i");
+          var fb = el.querySelector(".quiz-feedback");
+          el.querySelectorAll(".quiz-opt").forEach(function(b){ b.disabled = true; });
+          if(i === q.correct){ score++; btn.classList.add("correct"); fb.textContent = "✓ " + t(q.right); }
+          else {
+            btn.classList.add("wrong");
+            var c = el.querySelector('.quiz-opt[data-i="'+q.correct+'"]');
+            if(c) c.classList.add("correct");
+            fb.textContent = "✗ " + t(q.wrong);
+          }
+          fb.classList.add("show");
+          var nx = document.createElement("button");
+          nx.type = "button"; nx.className = "quiz-opt"; nx.style.maxWidth = "180px"; nx.style.marginTop = "14px";
+          nx.textContent = (idx+1 < cfg.questions.length) ? t(UI.next) : t(UI.done);
+          nx.addEventListener("click", function(){ idx++; render(); });
+          el.querySelector(".quiz-body").appendChild(nx);
+        });
+      });
+    }
+
+    document.addEventListener("walle:lang", render);
+    render();
+  };
+
+  /* ---------- init ---------- */
+  buildNav();
+  wireLang();
+  applyLang();
+  wireReveal();
+})();
+
+</script>
+<script>
+WalleQuiz(document.getElementById("quiz"), {
+  kicker:{en:"Pop quiz · no pressure", bg:"Бърз тест · без напрежение"},
+  title:{en:"Director or typist?", bg:"Режисьор или машинописец?"},
+  questions:[
+    {
+      q:{en:"You want to make a short film poster with AI. What's the 'director' move?",
+         bg:"Искаш да направиш постер за късометражен филм с AI. Кой е „режисьорският“ ход?"},
+      opts:[
+        {en:"Generate one image and use it as-is", bg:"Генерирам една картинка и я ползвам както си е"},
+        {en:"Generate 10 versions, pick the strongest, then push it: 'moodier, bigger title, less clutter'", bg:"Генерирам 10 версии, избирам най-силната и я доразвивам: „по-мрачно, по-голямо заглавие, по-чисто“"},
+        {en:"Ask AI which one it likes best and trust it", bg:"Питам AI коя му харесва и се доверявам на избора му"}
+      ],
+      correct:1,
+      right:{en:"Taste + iteration. That poster is yours now.", bg:"Вкус + итерация. Този постер вече е твой."},
+      wrong:{en:"The first output is raw material, not the final cut.", bg:"Първият резултат е суров материал, не финален кадър."}
+    },
+    {
+      q:{en:"You made a track where AI generated the beat and you wrote and recorded the vocals. What do you tell people?",
+         bg:"Направил си парче: AI е генерирал бийта, а ти си написал текста и си записал вокалите. Какво казваш на хората?"},
+      opts:[
+        {en:"Nothing — nobody needs to know", bg:"Нищо — никой не трябва да знае"},
+        {en:"“100% made by me, every sound”", bg:"„100% направено от мен, всеки звук“"},
+        {en:"“AI beat, my lyrics and vocals” — simple and true", bg:"„Бийтът е от AI, текстът и вокалите са мои“ — просто и честно"}
+      ],
+      correct:2,
+      right:{en:"Honest credit makes the parts YOU made hit harder.", bg:"Когато си честен, частите, които наистина са твои, тежат повече."},
+      wrong:{en:"Getting caught overclaiming costs more than sharing credit ever will.", bg:"Хванат ли те да си приписваш чуждото, губиш много повече, отколкото ако просто си признаеш."}
+    }
+  ]
+});
+</script>
+</body>
+</html>

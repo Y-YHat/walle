@@ -1,0 +1,888 @@
+WALLE — BULGARIAN COPY REVIEW
+==============================
+
+HOW TO EDIT THIS FILE:
+- Change ONLY the text on lines starting with  BG:
+- Keep each BG text on ONE line (no line breaks inside it).
+- Leave IDs like [W012], EN: lines, and section headers untouched.
+- Keep HTML tags such as <span class='hl'>...</span> — you can move them, but don't delete them.
+- Do not use straight double quotes (") inside the text — use „ “ instead.
+- Keep emojis if you want them; delete them if you don't.
+- If a line is already fine, just leave it as is.
+- EN lines are reference only — edits to them are ignored.
+
+──────────────────────────────────────────────
+SHARED — nav, footer, quiz buttons (used on every page)
+──────────────────────────────────────────────
+
+[W001]
+EN: ← Home
+BG: ← Начало
+
+[W002]
+EN: Next lesson
+BG: Следващ урок
+
+[W003]
+EN: Prompting
+BG: Промптинг
+
+[W004]
+EN: Spot the fakes
+BG: Разпознай фалшивото
+
+[W005]
+EN: Make things
+BG: Създавай неща
+
+[W006]
+EN: For school
+BG: За училище
+
+[W007]
+EN: The fine print
+BG: Дребният шрифт
+
+[W008]
+EN: Home
+BG: Начало
+
+[W009]
+EN: Question
+BG: Въпрос
+
+[W010]
+EN: of
+BG: от
+
+[W011]
+EN: Next →
+BG: Напред →
+
+[W012]
+EN: See my result
+BG: Виж резултата
+
+[W013]
+EN: Play again
+BG: Играй пак
+
+[W014]
+EN: You got
+BG: Позна
+
+[W015]
+EN: out of
+BG: от
+
+[W016]
+EN: Talk to AI like you mean it
+BG: Говори с AI така, че да те разбере
+
+[W017]
+EN: Perfect score. Honestly? Suspiciously good. 🏆
+BG: Напълно вярно попадение. Чак подозрително добро. 🏆
+
+[W018]
+EN: Solid. You're harder to fool than most adults. 💪
+BG: Стабилно. По-труден си за заблуда от повечето хора 💪
+
+[W019]
+EN: Hey, that's why lessons exist. Run it back. 🔁
+BG: Е, затова се учим. Пробвай пак. 🔁
+
+[W020]
+EN: Make actual things
+BG: Създавай неща на истина
+
+[W021]
+EN: Use it for school, honestly
+BG: Ползвай го за училище — честно и открито
+
+[W022]
+EN: AI is powerful. It's also not your friend.
+BG: AI е мощен. Но не е твой приятел.
+
+[W023]
+EN: Pop quiz · no pressure
+BG: Бърз тест · без напрежение
+
+[W024]
+EN: You: Actually I think 7×8 = 54.
+BG: Ти: Всъщност мисля, че 7×8 = 54.
+
+[W025]
+EN: AI: <span class='em'>You're absolutely right!</span> My mistake 🙃
+BG: AI: <span class='em'>Напълно си прав!</span> Моя грешка 🙃
+
+[W026]
+EN: Walle · AI literacy for students in Bulgaria
+BG: Walle · AI грамотност за ученици в България
+
+[W027]
+EN: Made with caffeine and good intentions.
+BG: Направено с кофеин и добри намерения.
+
+──────────────────────────────────────────────
+LANDING PAGE (Walle Landing Page.html)
+──────────────────────────────────────────────
+
+[W028]
+EN: Start learning
+BG: Започни сега
+
+[W029]
+EN: AI school for humans aged 15–18
+BG: AI училище за тийнейджъри (15–18)
+
+[W030]
+EN: Everyone keeps talking about AI. Almost nobody's talking <span class='hl'>to you.</span>
+BG: Всички говорят за AI. Почти никой не говори <span class='hl'>с теб.</span>
+
+[W031]
+EN: Walle is your no-nonsense, occasionally-funny guide to actually understanding AI — and using it for school, work, and whatever you're into. Free, in English and Bulgarian.
+BG: Walle ти помага наистина да разбереш AI — без заобикалки и с малко хумор — и да го ползваш за училище, за работа и за каквото ти е интересно. Безплатно, на български и на английски.
+
+[W032]
+EN: Start with one question
+BG: Започни с един въпрос
+
+[W033]
+EN: What you'll learn
+BG: Какво ще научиш
+
+[W034]
+EN: Try it · 10 seconds
+BG: Пробвай · 10 секунди
+
+[W035]
+EN: Okay, let's make this personal.
+BG: Да поговорим за теб.
+
+[W036]
+EN: Tell us one thing you're actually into. We'll show you where AI is already hiding inside it.
+BG: Кажи ни едно нещо, което наистина те влече. Ще ти покажем къде в него вече се е настанил AI.
+
+[W037]
+EN: e.g. football, music, drawing…
+BG: напр. футбол, музика, рисуване…
+
+[W038]
+EN: Show me
+BG: Покажи ми
+
+[W039]
+EN: Or pick one:
+BG: Или избери:
+
+[W040]
+EN: What you'll actually get out of this
+BG: Какво ще ти остане от всичко това
+
+[W041]
+EN: Prompting is a real skill. We'll make you annoyingly good at it.
+BG: Промптингът е истинско умение. Ще станеш толкова добър, че ще дразниш.
+
+[W042]
+EN: Start the lesson
+BG: Към урока
+
+[W043]
+EN: Deepfakes, hallucinations, and confident nonsense — learn to catch them.
+BG: Дийпфейкове, халюцинации и уверено изречени глупости — научи се да ги хващаш от пръв поглед.
+
+[W044]
+EN: Art, music, code, video. Go from idea to 'whoa, I made that.'
+BG: Изкуство, музика, код, видео. От идеята до „уау, аз направих това!“.
+
+[W045]
+EN: Learn faster — without cheating yourself out of actually learning.
+BG: Учи по-бързо — но така, че наистина да ти остане нещо в главата.
+
+[W046]
+EN: ⚠ Read the fine print
+BG: ⚠ Прочети дребния шрифт
+
+[W047]
+EN: Sycophancy, hallucinations, bias, privacy — 5 things to know before you trust it. 4-minute read.
+BG: Подмазване, халюцинации, предразсъдъци, лични данни — пет неща, които е добре да знаеш, преди да му се довериш. Четене за 4 минути.
+
+[W048]
+EN: Your future's going to be full of this stuff. Let's get you ready.
+BG: Бъдещето ти ще е пълно с AI. Нека те подготвим за него.
+
+[W049]
+EN: Start lesson 01 — it's free
+BG: Започни урок 01 — безплатно е
+
+[W050]
+EN: Football
+BG: Футбол
+
+[W051]
+EN: Music
+BG: Музика
+
+[W052]
+EN: Gaming
+BG: Гейминг
+
+[W053]
+EN: Art
+BG: Изкуство
+
+[W054]
+EN: TikTok
+BG: TikTok
+
+[W055]
+EN: Coding
+BG: Програмиране
+
+[W056]
+EN: Medicine
+BG: Медицина
+
+[W057]
+EN: Space
+BG: Космос
+
+[W058]
+EN: Fitness
+BG: Фитнес
+
+[W059]
+EN: Writing
+BG: Писане
+
+[W060]
+EN: Walle is thinking…
+BG: Walle мисли…
+
+[W061]
+EN: Where AI lives in
+BG: Къде се крие AI
+
+[W062]
+EN: There's a whole lesson on this
+BG: Има цял урок за това
+
+[W063]
+EN: Try another
+BG: Пробвай друго
+
+──────────────────────────────────────────────
+LESSON 01 — PROMPTING (Prompting.html)
+──────────────────────────────────────────────
+
+[W064]
+EN: Lesson 01 · 5 min
+BG: Урок 01 · 5 мин
+
+[W065]
+EN: AI gives lazy answers to lazy questions. Three small upgrades and yours go from 'meh' to 'whoa'.
+BG: На мързелив въпрос AI отговаря мързеливо. Три малки трика — и отговорите ти минават от „горе-долу“ към „уау“.
+
+[W066]
+EN: Be specific. Painfully specific.
+BG: Бъди конкретен. Болезнено конкретен.
+
+[W067]
+EN: AI can't read your mind. The detail you leave out is the detail it makes up. Say who it's for, how long, and what style.
+BG: AI не чете мисли. Каквото не му кажеш, той ще си го измисли. Уточни за кого е, колко дълго да бъде и в какъв стил.
+
+[W068]
+EN: Meh
+BG: Горе-долу
+
+[W069]
+EN: “Write about climate change.”
+BG: „Напиши за климатичните промени.“
+
+[W070]
+EN: Gets: a generic essay nobody asked for.
+BG: Резултат: безлично есе, което никой няма да прочете.
+
+[W071]
+EN: Whoa
+BG: Уау
+
+[W072]
+EN: “Explain 3 surprising climate facts to a 16-year-old, 100 words, make it funny.”
+BG: „Обясни ми 3 изненадващи факта за климата, все едно говориш с 16-годишен. До 100 думи, със закачка.“
+
+[W073]
+EN: Gets: something you'd actually read.
+BG: Резултат: текст, който наистина ти се чете.
+
+[W074]
+EN: Give it a role
+BG: Дай му роля
+
+[W075]
+EN: Start with 'You are a…' and watch the answer transform. A football coach, a strict editor, a friendly physics teacher — the role sets the tone, the depth, and the attitude.
+BG: Започни с „Ти си…“ и виж как отговорът се променя. Футболен треньор, строг редактор, готин учител по физика — ролята определя тона, дълбочината и отношението.
+
+[W076]
+EN: Try: “You are a tough debate judge. Find the 3 weakest points in my argument.”
+BG: Пробвай: „Ти си строг съдия на дебати. Посочи трите най-слаби места в аргументите ми.“
+
+[W077]
+EN: Don't settle for draft #1
+BG: Не спирай на първата чернова
+
+[W078]
+EN: The first answer is a starting point, not the finish line. Reply with 'shorter', 'funnier', 'give me 3 versions', 'now argue the opposite'. Each round gets better — that's the whole game.
+BG: Първият отговор е отправна точка, не краен резултат. Връщай се с „по-кратко“, „по-смешно“, „дай ми 3 варианта“, „а сега защити обратната теза“. С всеки рунд става по-добре — там е целият номер.
+
+[W079]
+EN: Pros don't write better first prompts. They just don't stop at the first answer.
+BG: Професионалистите не пишат по-добри първи промптове. Просто не спират на първия отговор.
+
+[W080]
+EN: Which prompt wins?
+BG: Кой промпт печели?
+
+[W081]
+EN: You need help studying for a biology test. Which prompt gets the best result?
+BG: Трябва ти помощ за контролно по биология. Кой промпт дава най-добър резултат?
+
+[W082]
+EN: “Help me with biology.”
+BG: „Помогни ми с биологията.“
+
+[W083]
+EN: “You're a friendly bio teacher. Quiz me on photosynthesis with 5 questions, easy to hard.”
+BG: „Ти си готин учител по биология. Изпитай ме върху фотосинтезата с 5 въпроса — от лесни към трудни.“
+
+[W084]
+EN: “Write everything about biology.”
+BG: „Напиши всичко за биологията.“
+
+[W085]
+EN: Role + task + format. That's the recipe.
+BG: Роля + задача + формат. Това е рецептата.
+
+[W086]
+EN: Too vague — AI will guess, and it'll guess boring.
+BG: Твърде общо — AI ще гадае, и резултатът ще е скучен.
+
+[W087]
+EN: The first answer you get is mediocre. What do pros do?
+BG: Получаваш посредствен отговор. Какво би направил професионалист?
+
+[W088]
+EN: Give up — AI just isn't good at this
+BG: Отказва се — AI явно не става за това
+
+[W089]
+EN: Copy it anyway, who cares
+BG: Копира го както си е — и бездруго никой няма да забележи
+
+[W090]
+EN: Reply with what to change: 'shorter, funnier, give 3 versions'
+BG: Пише какво да се промени: „по-кратко, по-смешно, дай 3 варианта“
+
+[W091]
+EN: Exactly. Iteration is the real skill.
+BG: Точно така. Итерацията е истинското умение.
+
+[W092]
+EN: Nope — the magic happens in round 2 and 3.
+BG: Не — магията става във втория и третия рунд.
+
+──────────────────────────────────────────────
+LESSON 02 — SPOT THE FAKES (Spot the Fakes.html)
+──────────────────────────────────────────────
+
+[W093]
+EN: Lesson 02 · 5 min
+BG: Урок 02 · 5 мин
+
+[W094]
+EN: AI can fake faces, voices, and facts — confidently. Here's your built-in lie detector, in three habits.
+BG: AI умее да фалшифицира лица, гласове и факти — при това убедително. Ето как да си изградиш детектор за лъжи в три навика.
+
+[W095]
+EN: Confidence ≠ correctness
+BG: Уверен тон ≠ истина
+
+[W096]
+EN: AI never sounds unsure — even when it's inventing facts, quotes, and sources. That's called a hallucination, and it arrives in the same confident tone as the truth.
+BG: AI никога не звучи колебливо — дори когато си измисля факти, цитати и източници. Това се нарича халюцинация и идва със същия уверен тон, с който идва и истината.
+
+[W097]
+EN: Rule: the more specific the claim (names, dates, numbers), the more it needs checking.
+BG: Правило: колкото по-конкретно е твърдението (имена, дати, числа), толкова по-задължителна е проверката.
+
+[W098]
+EN: Deepfakes: check the boring details
+BG: Дийпфейкове: гледай скучните детайли
+
+[W099]
+EN: Fake images get the face right and the boring stuff wrong: hands, teeth, text on signs, reflections, backgrounds that melt. Videos slip on lip-sync and blinking.
+BG: Фалшивите снимки уцелват лицето, но се провалят в скучните детайли: ръце, зъби, надписи, отражения, размазани фонове. При видеата се гледа синхронът на устните и мигането.
+
+[W100]
+EN: Best check of all: would this person really say this? Who benefits if you believe it?
+BG: Най-добрата проверка: този човек наистина ли би казал това? Кой печели, ако повярваш?
+
+[W101]
+EN: Triangulate like a journalist
+BG: Проверявай като журналист
+
+[W102]
+EN: One source is a rumor. Before you share something wild, find it in two more places that aren't quoting each other. Takes 30 seconds, saves you from being 'that person' in the group chat.
+BG: Един източник си е слух. Преди да споделиш нещо гръмко, открий го на още две места, които не се позовават едно на друго. Отнема 30 секунди — и те спасява от ролята на „онзи с фалшивата новина“ в групата.
+
+[W103]
+EN: Got fooled
+BG: Върза се
+
+[W104]
+EN: See shocking post → feel outrage → share instantly
+BG: Виждаш шокиращ пост → възмущаваш се → споделяш веднага
+
+[W105]
+EN: Too smart for that
+BG: Не се връзваш
+
+[W106]
+EN: See shocking post → pause → check 2 sources → then decide
+BG: Виждаш шокиращ пост → изчакваш → проверяваш два източника → чак тогава решаваш
+
+[W107]
+EN: Challenge · can you spot it?
+BG: Предизвикателство · ще го хванеш ли?
+
+[W108]
+EN: Real or fake?
+BG: Истинско или фалшиво?
+
+[W109]
+EN: An AI tells you: “Studies by Dr. Elena Markov (2024) prove fish can recognize their owners' voices.” What's the red flag?
+BG: AI ти казва: „Изследване на д-р Елена Маркова (2024) доказва, че рибите разпознават гласа на стопаните си.“ Какво трябва да ти направи впечатление?
+
+[W110]
+EN: Nothing — it cited a study, so it's true
+BG: Нищо — цитира изследване, значи е вярно
+
+[W111]
+EN: Specific name + year + bold claim = exactly what hallucinations look like. Verify first.
+BG: Конкретно име + година + гръмко твърдение = класическа халюцинация. Първо провери.
+
+[W112]
+EN: Fish are obviously fake
+BG: Рибите очевидно са измислени
+
+[W113]
+EN: Citations can be 100% invented. Always check the source exists.
+BG: Цитатите може да са 100% измислени. Винаги проверявай дали източникът съществува.
+
+[W114]
+EN: AI invents very official-sounding studies all the time.
+BG: AI постоянно си измисля изследвания, които звучат напълно официално.
+
+[W115]
+EN: A video of a famous person saying something outrageous appears in your feed. First move?
+BG: Във фийда ти изскача видео, в което известна личност казва нещо скандално. Какво правиш първо?
+
+[W116]
+EN: Share it — people need to know!
+BG: Споделям го — хората трябва да знаят!
+
+[W117]
+EN: Check if real news sources are reporting it
+BG: Проверявам дали сериозни медии съобщават за това
+
+[W118]
+EN: Comment something angry immediately
+BG: Веднага коментирам нещо гневно
+
+[W119]
+EN: If it were real, it'd be everywhere within the hour.
+BG: Ако беше истинско, щеше да е навсякъде до час.
+
+[W120]
+EN: That's exactly the reaction fakes are designed to trigger.
+BG: Фалшивите видеа разчитат точно на тази реакция.
+
+──────────────────────────────────────────────
+LESSON 03 — MAKE THINGS (Make Things.html)
+──────────────────────────────────────────────
+
+[W121]
+EN: Lesson 03 · 5 min
+BG: Урок 03 · 5 мин
+
+[W122]
+EN: Music, art, apps, videos — the distance between 'I have an idea' and 'I made a thing' has never been shorter. Here's how to cross it.
+BG: Музика, изкуство, приложения, видео — пътят от „имам идея“ до „взех че го направих“ никога не е бил по-кратък. Ето как да го извървиш.
+
+[W123]
+EN: Start embarrassingly small
+BG: Започни от смешно малкото
+
+[W124]
+EN: Don't 'make an album' — make 8 seconds of a beat. Don't 'build an app' — make a button that does one thing. AI is amazing at turning tiny ideas into working first drafts, and tiny wins stack fast.
+BG: Не се захващай с „албум“ — направи 8 секунди бийт. Не „строй приложение“ — направи един бутон, който върши едно нещо. AI е страхотен в превръщането на дребни идеи в работещи първи версии, а малките победи бързо се трупат.
+
+[W125]
+EN: Finished and small beats perfect and imaginary. Every time.
+BG: Малкото, но завършено, винаги бие голямото, но въображаемо.
+
+[W126]
+EN: You're the director, not the typist
+BG: Ти си режисьорът, не машинописецът
+
+[W127]
+EN: AI generates options; you make the calls. Which version is better? What's missing? What feels off? That judgment is called taste — and it's the one part AI can't do for you.
+BG: AI генерира варианти; ти взимаш решенията. Коя версия е по-добра? Какво липсва? Кое не е наред? Тази преценка се нарича вкус — и е единствената част, която AI не може да свърши вместо теб.
+
+[W128]
+EN: Typist
+BG: Машинописец
+
+[W129]
+EN: “Make me a song.” → accepts whatever comes out
+BG: „Направи ми песен.“ → приема каквото излезе
+
+[W130]
+EN: Director
+BG: Режисьор
+
+[W131]
+EN: “Darker. Slower intro. Keep the hook, cut verse 2.” → it's yours now
+BG: „По-мрачно. По-бавно интро. Запази припева, махни втория куплет.“ → вече е твое
+
+[W132]
+EN: Say what AI did. Own what you did.
+BG: Признай какво е направил AI. Гордей се с твоето.
+
+[W133]
+EN: Used AI for the artwork? Say so. Wrote the melody yourself? Own it loudly. Creators who are honest about their process get trusted — and trust is the whole currency of making things.
+BG: Ползвал си AI за обложката? Кажи го. Сам си написал мелодията? Заяви го на висок глас. Хората вярват на създатели, които са честни за процеса си — а доверието е най-ценната валута, когато твориш.
+
+[W134]
+EN: “AI helped” is a normal sentence now. “AI made it, I said I did” is not.
+BG: „AI ми помогна“ е съвсем нормално изречение. „AI го направи, но казах, че съм аз“ — не е.
+
+[W135]
+EN: Director or typist?
+BG: Режисьор или машинописец?
+
+[W136]
+EN: You want to make a short film poster with AI. What's the 'director' move?
+BG: Искаш да направиш постер за късометражен филм с AI. Кой е „режисьорският“ ход?
+
+[W137]
+EN: Generate one image and use it as-is
+BG: Генерирам една картинка и я ползвам както си е
+
+[W138]
+EN: Generate 10 versions, pick the strongest, then push it: 'moodier, bigger title, less clutter'
+BG: Генерирам 10 версии, избирам най-силната и я доразвивам: „по-мрачно, по-голямо заглавие, по-чисто“
+
+[W139]
+EN: Ask AI which one it likes best and trust it
+BG: Питам AI коя му харесва и се доверявам на избора му
+
+[W140]
+EN: Taste + iteration. That poster is yours now.
+BG: Вкус + итерация. Този постер вече е твой.
+
+[W141]
+EN: The first output is raw material, not the final cut.
+BG: Първият резултат е суров материал, не финален кадър.
+
+[W142]
+EN: You made a track where AI generated the beat and you wrote and recorded the vocals. What do you tell people?
+BG: Направил си парче: AI е генерирал бийта, а ти си написал текста и си записал вокалите. Какво казваш на хората?
+
+[W143]
+EN: Nothing — nobody needs to know
+BG: Нищо — никой не трябва да знае
+
+[W144]
+EN: “100% made by me, every sound”
+BG: „100% направено от мен, всеки звук“
+
+[W145]
+EN: “AI beat, my lyrics and vocals” — simple and true
+BG: „Бийтът е от AI, текстът и вокалите са мои“ — просто и честно
+
+[W146]
+EN: Honest credit makes the parts YOU made hit harder.
+BG: Когато си честен, частите, които наистина са твои, тежат повече.
+
+[W147]
+EN: Getting caught overclaiming costs more than sharing credit ever will.
+BG: Хванат ли те да си приписваш чуждото, губиш много повече, отколкото ако просто си признаеш.
+
+──────────────────────────────────────────────
+LESSON 04 — AI FOR SCHOOL (AI for School.html)
+──────────────────────────────────────────────
+
+[W148]
+EN: Lesson 04 · 5 min
+BG: Урок 04 · 5 мин
+
+[W149]
+EN: There's a version of using AI that makes you smarter and a version that makes you dumber — and they look almost identical from the outside. Here's the difference.
+BG: AI може да те направи и по-умен, и по-мързелив — а отстрани двете изглеждат почти еднакво. Ето каква е разликата.
+
+[W150]
+EN: The tutor move, not the ghostwriter move
+BG: Учител — да. Писател в сянка — не.
+
+[W151]
+EN: Same tool, opposite outcomes. Ask AI to write your essay and you've learned nothing (and it usually shows). Ask it to explain, quiz you, and poke holes in YOUR draft — now you have a 24/7 personal tutor.
+BG: Един и същ инструмент, два противоположни резултата. Оставиш ли AI да ти напише есето, не научаваш нищо (и обикновено си личи). Накараш ли го да ти обяснява, да те изпитва и да търси слабости в ТВОЯТА чернова — вече имаш личен учител, наличен денонощно.
+
+[W152]
+EN: Ghostwriter
+BG: Писател в сянка
+
+[W153]
+EN: “Write my history essay about the Bulgarian Revival.”
+BG: „Напиши ми есето по история за Българското възраждане.“
+
+[W154]
+EN: You hand in words you don't understand.
+BG: Предаваш думи, които не разбираш.
+
+[W155]
+EN: Tutor
+BG: Учител
+
+[W156]
+EN: “Here's my draft. What's my weakest argument? What would a teacher ask me?”
+BG: „Ето я черновата ми. Кой е най-слабият ми аргумент? Какво би ме попитал учителят?“
+
+[W157]
+EN: Your essay, leveled up. Your brain, also.
+BG: Есето ти става по-добро. Ти — също.
+
+[W158]
+EN: Study modes that actually work
+BG: Начини за учене, които наистина работят
+
+[W159]
+EN: Three magic phrases: “Quiz me on this until I get 5 in a row.” “Explain it like I'm 12, then like I'm 18.” “I'll explain it back to you — tell me what I got wrong.” That last one is the strongest learning trick known to science.
+BG: Три магически фрази: „Изпитвай ме, докато отговоря вярно 5 пъти поред.“ „Обясни ми го като на 12-годишен, а после като на 18-годишен.“ „Сега аз ще ти го обясня — кажи ми къде бъркам.“ Последната е най-мощният трик за учене, известен на науката.
+
+[W160]
+EN: Before a test: paste your notes and ask for the 10 questions most likely to come up.
+BG: Преди контролно: пусни му записките си и поискай десетте най-вероятни въпроса.
+
+[W161]
+EN: Know where the line is
+BG: Знай къде е границата
+
+[W162]
+EN: Every school's rules differ, but the honest test is simple: could you explain and defend every sentence you handed in? If yes, AI was a tool. If no, it was a stand-in — and stand-ins get noticed.
+BG: Правилата във всяко училище са различни, но честната проверка е проста: можеш ли да обясниш и защитиш всяко изречение, което предаваш? Ако да — AI ти е бил инструмент. Ако не — бил ти е дубльор. А дубльорите рано или късно се забелязват.
+
+[W163]
+EN: The goal isn't to never use AI. It's to always be the smartest thing in the conversation.
+BG: Целта не е никога да не ползваш AI. Целта е винаги ти да си най-умното нещо в разговора.
+
+[W164]
+EN: One more thing
+BG: Още нещо
+
+[W165]
+EN: Read the fine print
+BG: Прочети дребния шрифт
+
+[W166]
+EN: Tutor or ghostwriter?
+BG: Учител или писател в сянка?
+
+[W167]
+EN: Big literature essay due Friday. Which use of AI actually helps you?
+BG: Имаш голямо есе по литература за петък. Кой вариант наистина ти помага?
+
+[W168]
+EN: “Write a 500-word essay on Pod Igoto.” Copy. Paste. Done.
+BG: „Напиши ми есе от 500 думи върху „Под игото“.“ Копираш, поставяш, готово.
+
+[W169]
+EN: Write your draft, then ask: “Challenge my main argument like a strict teacher.”
+BG: Пишеш си черновата и после му казваш: „Атакувай основния ми аргумент като строг учител.“
+
+[W170]
+EN: Ask AI to make it 'sound smarter' and hand that in
+BG: Караш AI да го „изглади да звучи по-умно“ и предаваш направо това
+
+[W171]
+EN: Your ideas survive contact with criticism = real learning.
+BG: Идеи, които издържат на критика = истинско учене.
+
+[W172]
+EN: If you can't defend it in class, it was never yours.
+BG: Ако не можеш да го защитиш в час, никога не е било твое.
+
+[W173]
+EN: What's the single most effective study prompt?
+BG: Кой е най-ефективният промпт за учене?
+
+[W174]
+EN: “Summarize this chapter so I don't have to read it”
+BG: „Резюмирай ми тази глава, че да не я чета“
+
+[W175]
+EN: “Give me all the answers to these exercises”
+BG: „Дай ми отговорите на всички задачи“
+
+[W176]
+EN: “I'll explain this topic to you — tell me what I got wrong”
+BG: „Аз ще ти обясня темата — ти ми кажи къде бъркам“
+
+[W177]
+EN: Teaching it back is how you find the holes in your knowledge.
+BG: Когато преподаваш материала обратно, сам откриваш дупките в знанията си.
+
+[W178]
+EN: Shortcuts feel great until the test is on paper and the AI is at home.
+BG: Преките пътища работят чудесно — докато не дойде контролното на хартия, а AI-ят си остане вкъщи.
+
+──────────────────────────────────────────────
+THE FINE PRINT (Fine Print.html)
+──────────────────────────────────────────────
+
+[W179]
+EN: ⚠ Required reading · 4 min
+BG: ⚠ Задължително четиво · 4 мин
+
+[W180]
+EN: The most useful thing we can teach you isn't how to use AI — it's how to not get fooled by it. Five things to watch for.
+BG: Най-полезното, което можем да те научим, не е как да ползваш AI — а как да не се подведеш по него. Пет неща, за които да внимаваш.
+
+[W181]
+EN: It'll agree with you. Even when you're wrong.
+BG: Ще се съгласи с теб. Дори когато грешиш.
+
+[W182]
+EN: AI is trained to please you, so it often tells you what you want to hear — a habit called sycophancy. Push back on a right answer and it may cave and 'agree.' It is not a judge of truth, and a confident tone is not proof.
+BG: AI е обучен да ти угажда, затова често казва това, което искаш да чуеш — на това му казват подмазване (sycophancy). Възразиш ли му дори на верен отговор, той може да отстъпи и да се „съгласи“ с теб. AI не е съдник на истината, а увереният тон не е доказателство.
+
+[W183]
+EN: Do this:
+BG: Направи това:
+
+[W184]
+EN: Ask it to argue the opposite side, and check anything that matters.
+BG: Накарай го да защити обратната теза — и проверявай всичко важно.
+
+[W185]
+EN: It makes things up
+BG: Измисля си неща
+
+[W186]
+EN: AI can invent facts, fake quotes, and citations that don't exist — and state them with total confidence. These are called hallucinations.
+BG: AI си измисля факти, цитати и източници, които не съществуват — и ги поднася с пълна увереност. Това се нарича халюцинация.
+
+[W187]
+EN: Verify names, numbers, and sources before you trust them.
+BG: Проверявай имената, числата и източниците, преди да им се довериш.
+
+[W188]
+EN: It inherits our biases
+BG: Наследява нашите предразсъдъци
+
+[W189]
+EN: AI learns from human-made data, so it can quietly repeat stereotypes and blind spots — and make them sound neutral and official.
+BG: AI учи от създадени от хора данни, затова неусетно повтаря човешките стереотипи и слепи петна — и ги поднася така, сякаш са неутрални факти.
+
+[W190]
+EN: Notice whose perspective is missing from the answer.
+BG: Питай се чия гледна точка липсва в отговора.
+
+[W191]
+EN: What you type isn't always private
+BG: Каквото пишеш, не винаги остава между вас
+
+[W192]
+EN: Chats can be stored and used to train future models. Treat the box like a public postcard, not a private diary.
+BG: Разговорите може да се съхраняват и да се използват за обучение на бъдещи модели. Мисли за чата като за пощенска картичка, не като за личен дневник.
+
+[W193]
+EN: Never paste passwords, secrets, or other people's private info.
+BG: Никога не пиши там пароли, тайни или чужди лични данни.
+
+[W194]
+EN: It can do your thinking for you
+BG: Може да мисли вместо теб
+
+[W195]
+EN: Let AI write every essay and solve every problem and your own skills quietly stop growing. The goal is a power tool, not a crutch.
+BG: Оставиш ли AI да пише всяко есе и да решава всяка задача, твоите собствени умения тихо спират да растат. Той трябва да ти е мощен инструмент, а не патерица.
+
+[W196]
+EN: Try it yourself first, then use AI to check and level up.
+BG: Първо опитай сам, после ползвай AI за проверка и надграждане.
+
+[W197]
+EN: Start from the top
+BG: Започни отначало
+
+[W198]
+EN: Lesson 01 · Prompting
+BG: Урок 01 · Промптинг
+
+[W199]
+EN: Challenge · don't get played
+BG: Предизвикателство · не се връзвай
+
+[W200]
+EN: Can AI fool you?
+BG: Може ли AI да те преметне?
+
+[W201]
+EN: You tell AI its (correct) answer is wrong. It instantly apologizes and switches to your answer. What just happened?
+BG: Казваш на AI, че верният му отговор е грешен. Той веднага се извинява и приема твоя. Какво всъщност се случи?
+
+[W202]
+EN: It double-checked and realized I was right
+BG: Проверил е отново и е разбрал, че съм прав
+
+[W203]
+EN: Sycophancy — it's trained to please me, not to defend the truth
+BG: Подмазване — обучен е да ми угажда, а не да защитава истината
+
+[W204]
+EN: AI answers are random anyway
+BG: Отговорите на AI така или иначе са случайни
+
+[W205]
+EN: Exactly. Agreement is not evidence.
+BG: Точно така. Съгласието не е доказателство.
+
+[W206]
+EN: It caved because you pushed — that's the people-pleasing reflex.
+BG: Отстъпи, защото ти настоя — рефлексът да угажда надделя.
+
+[W207]
+EN: Which of these is safe to paste into an AI chat?
+BG: Кое от изброените е безопасно да пуснеш в AI чат?
+
+[W208]
+EN: Your friend's address and phone number
+BG: Адреса и телефона на приятел
+
+[W209]
+EN: Your school login password
+BG: Паролата си за училищната система
+
+[W210]
+EN: A paragraph from your own essay draft
+BG: Абзац от собствената си чернова на есе
+
+[W211]
+EN: Your own work is fine. Passwords and other people's info — never.
+BG: Собствените ти текстове са окей. Пароли и чужди данни — никога.
+
+[W212]
+EN: Treat the chat box like a postcard: never secrets, never other people's info.
+BG: Мисли за чата като за пощенска картичка: без тайни и без чужди данни.

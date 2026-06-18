@@ -1,0 +1,2450 @@
+[
+ {
+  "id": "W001",
+  "en": "← Home",
+  "bg": "← Начало",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W002",
+  "en": "Next lesson",
+  "bg": "Следващ урок",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W003",
+  "en": "Prompting",
+  "bg": "Промптинг",
+  "kinds": [
+   "attr",
+   "js"
+  ],
+  "files": [
+   "index.html",
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W004",
+  "en": "Spot the fakes",
+  "bg": "Разпознай фалшивото",
+  "kinds": [
+   "attr",
+   "js"
+  ],
+  "files": [
+   "index.html",
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W005",
+  "en": "Make things",
+  "bg": "Създавай",
+  "kinds": [
+   "attr",
+   "js"
+  ],
+  "files": [
+   "index.html",
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W006",
+  "en": "For school",
+  "bg": "За училище",
+  "kinds": [
+   "attr",
+   "js"
+  ],
+  "files": [
+   "index.html",
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W007",
+  "en": "The fine print",
+  "bg": "Дребният шрифт",
+  "kinds": [
+   "attr",
+   "js"
+  ],
+  "files": [
+   "index.html",
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W008",
+  "en": "Home",
+  "bg": "Начало",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W009",
+  "en": "Question",
+  "bg": "Въпрос",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W010",
+  "en": "of",
+  "bg": "от",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W011",
+  "en": "Next →",
+  "bg": "Напред →",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W012",
+  "en": "See my result",
+  "bg": "Виж резултата",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W013",
+  "en": "Play again",
+  "bg": "Играй пак",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W014",
+  "en": "You got",
+  "bg": "Позна",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W015",
+  "en": "out of",
+  "bg": "от",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W016",
+  "en": "Talk to AI like you mean it",
+  "bg": "Говори с AI така, че да те разбере",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html",
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W017",
+  "en": "Perfect score. Honestly? Suspiciously good. 🏆",
+  "bg": "Пълно попадение. Чак подозрително добре. 🏆",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W018",
+  "en": "Solid. You're harder to fool than most adults. 💪",
+  "bg": "Стабилно. Лъжеш се по-трудно от повечето възрастни. 💪",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W019",
+  "en": "Hey, that's why lessons exist. Run it back. 🔁",
+  "bg": "Е, затова има уроци. Пробвай пак. 🔁",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html",
+   "walle.js"
+  ]
+ },
+ {
+  "id": "W020",
+  "en": "Make actual things",
+  "bg": "Създавай истински неща",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html",
+   "spot-the-fakes.html",
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W021",
+  "en": "Use it for school, honestly",
+  "bg": "Ползвай го за училище — честно",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html",
+   "make-things.html",
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W022",
+  "en": "AI is powerful. It's also not your friend.",
+  "bg": "AI е мощен. Но не ти е приятел.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html",
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W023",
+  "en": "Pop quiz · no pressure",
+  "bg": "Бърз тест · без напрежение",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html",
+   "make-things.html",
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W024",
+  "en": "You: Actually I think 7×8 = 54.",
+  "bg": "Ти: Всъщност мисля, че 7×8 = 54.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html",
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W025",
+  "en": "AI: <span class='em'>You're absolutely right!</span> My mistake 🙃",
+  "bg": "AI: <span class='em'>Напълно си прав!</span> Моя грешка 🙃",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html",
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W026",
+  "en": "Walle · AI literacy for students in Bulgaria",
+  "bg": "Walle · AI грамотност за ученици в България",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html",
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W027",
+  "en": "Made with caffeine and good intentions.",
+  "bg": "Направено с кофеин и добри намерения.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html",
+   "prompting.html",
+   "spot-the-fakes.html",
+   "make-things.html",
+   "ai-for-school.html",
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W028",
+  "en": "Start learning",
+  "bg": "Започни сега",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W029",
+  "en": "AI school for humans aged 15–18",
+  "bg": "AI училище за тийнейджъри (15–18)",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W030",
+  "en": "Everyone keeps talking about AI. Almost nobody's talking <span class='hl'>to you.</span>",
+  "bg": "Всички говорят за AI. Почти никой не говори <span class='hl'>с теб.</span>",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W031",
+  "en": "Walle is your no-nonsense, occasionally-funny guide to actually understanding AI — and using it for school, work, and whatever you're into. Free, in English and Bulgarian.",
+  "bg": "Walle ти помага наистина да разбереш AI — без заобикалки и с малко хумор — и да го ползваш за училище, за работа и за каквото ти е интересно. Безплатно, на български и на английски.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W032",
+  "en": "Start with one question",
+  "bg": "Започни с един въпрос",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W033",
+  "en": "What you'll learn",
+  "bg": "Какво ще научиш",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W034",
+  "en": "Try it · 10 seconds",
+  "bg": "Пробвай · 10 секунди",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W035",
+  "en": "Okay, let's make this personal.",
+  "bg": "Да поговорим за теб.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W036",
+  "en": "Tell us one thing you're actually into. We'll show you where AI is already hiding inside it.",
+  "bg": "Кажи ни едно нещо, което наистина те влече. Ще ти покажем къде в него вече се е настанил AI.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W037",
+  "en": "e.g. football, music, drawing…",
+  "bg": "напр. футбол, музика, рисуване…",
+  "kinds": [
+   "attr-ph"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W038",
+  "en": "Show me",
+  "bg": "Покажи ми",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W039",
+  "en": "Or pick one:",
+  "bg": "Или избери:",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W040",
+  "en": "What you'll actually get out of this",
+  "bg": "Какво ще ти остане от всичко това",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W041",
+  "en": "Prompting is a real skill. We'll make you annoyingly good at it.",
+  "bg": "Промптингът е истинско умение. Ще станеш толкова добър, че ще дразниш.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W042",
+  "en": "Start the lesson",
+  "bg": "Към урока",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W043",
+  "en": "Deepfakes, hallucinations, and confident nonsense — learn to catch them.",
+  "bg": "Дийпфейкове, халюцинации и уверено изречени глупости — научи се да ги хващаш от пръв поглед.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W044",
+  "en": "Art, music, code, video. Go from idea to 'whoa, I made that.'",
+  "bg": "Изкуство, музика, код, видео. От идеята до „уау, аз направих това!“.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W045",
+  "en": "Learn faster — without cheating yourself out of actually learning.",
+  "bg": "Учи по-бързо — но така, че наистина да ти остане нещо в главата.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W046",
+  "en": "⚠ Read the fine print",
+  "bg": "⚠ Прочети дребния шрифт",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W047",
+  "en": "Sycophancy, hallucinations, bias, privacy — 5 things to know before you trust it. 4-minute read.",
+  "bg": "Подмазване, халюцинации, предразсъдъци, лични данни — пет неща, които е добре да знаеш, преди да му се довериш. Четене за 4 минути.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W048",
+  "en": "Your future's going to be full of this stuff. Let's get you ready.",
+  "bg": "Бъдещето ти ще е пълно с AI. Нека те подготвим за него.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W049",
+  "en": "Start lesson 01 — it's free",
+  "bg": "Започни урок 01 — безплатно е",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W050",
+  "en": "Football",
+  "bg": "Футбол",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W051",
+  "en": "Music",
+  "bg": "Музика",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W052",
+  "en": "Gaming",
+  "bg": "Гейминг",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W053",
+  "en": "Art",
+  "bg": "Изкуство",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W054",
+  "en": "TikTok",
+  "bg": "TikTok",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W055",
+  "en": "Coding",
+  "bg": "Програмиране",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W056",
+  "en": "Medicine",
+  "bg": "Медицина",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W057",
+  "en": "Space",
+  "bg": "Космос",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W058",
+  "en": "Fitness",
+  "bg": "Фитнес",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W059",
+  "en": "Writing",
+  "bg": "Писане",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W060",
+  "en": "Walle is thinking…",
+  "bg": "Walle мисли…",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W061",
+  "en": "Where AI lives in",
+  "bg": "Къде се крие AI",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W062",
+  "en": "There's a whole lesson on this",
+  "bg": "Има цял урок за това",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W063",
+  "en": "Try another",
+  "bg": "Пробвай друго",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "id": "W064",
+  "en": "Lesson 01 · 5 min",
+  "bg": "Урок 01 · 5 мин",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W065",
+  "en": "AI gives lazy answers to lazy questions. Three small upgrades and yours go from 'meh' to 'whoa'.",
+  "bg": "На мързелив въпрос AI отговаря мързеливо. Три малки трика — и отговорите ти минават от „горе-долу“ към „уау“.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W066",
+  "en": "Be specific. Painfully specific.",
+  "bg": "Бъди конкретен. Болезнено конкретен.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W067",
+  "en": "AI can't read your mind. The detail you leave out is the detail it makes up. Say who it's for, how long, and what style.",
+  "bg": "AI не чете мисли. Каквото не му кажеш, той ще си го измисли. Уточни за кого е, колко дълго да бъде и в какъв стил.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W068",
+  "en": "Meh",
+  "bg": "Горе-долу",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W069",
+  "en": "“Write about climate change.”",
+  "bg": "„Напиши за климатичните промени.“",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W070",
+  "en": "Gets: a generic essay nobody asked for.",
+  "bg": "Резултат: безлично есе, което никой няма да прочете.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W071",
+  "en": "Whoa",
+  "bg": "Уау",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W072",
+  "en": "“Explain 3 surprising climate facts to a 16-year-old, 100 words, make it funny.”",
+  "bg": "„Обясни ми 3 изненадващи факта за климата, все едно говориш с 16-годишен. До 100 думи, със закачка.“",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W073",
+  "en": "Gets: something you'd actually read.",
+  "bg": "Резултат: текст, който наистина ти се чете.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W074",
+  "en": "Give it a role",
+  "bg": "Дай му роля",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W075",
+  "en": "Start with 'You are a…' and watch the answer transform. A football coach, a strict editor, a friendly physics teacher — the role sets the tone, the depth, and the attitude.",
+  "bg": "Започни с „Ти си…“ и виж как отговорът се променя. Футболен треньор, строг редактор, готин учител по физика — ролята определя тона, дълбочината и отношението.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W076",
+  "en": "Try: “You are a tough debate judge. Find the 3 weakest points in my argument.”",
+  "bg": "Пробвай: „Ти си строг съдия на дебати. Посочи трите най-слаби места в аргументите ми.“",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W077",
+  "en": "Don't settle for draft #1",
+  "bg": "Не спирай на първата чернова",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W078",
+  "en": "The first answer is a starting point, not the finish line. Reply with 'shorter', 'funnier', 'give me 3 versions', 'now argue the opposite'. Each round gets better — that's the whole game.",
+  "bg": "Първият отговор е отправна точка, не краен резултат. Връщай се с „по-кратко“, „по-смешно“, „дай ми 3 варианта“, „а сега защити обратната теза“. С всеки рунд става по-добре — там е целият номер.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W079",
+  "en": "Pros don't write better first prompts. They just don't stop at the first answer.",
+  "bg": "Професионалистите не пишат по-добри първи промптове. Просто не спират на първия отговор.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W080",
+  "en": "Which prompt wins?",
+  "bg": "Кой промпт печели?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W081",
+  "en": "You need help studying for a biology test. Which prompt gets the best result?",
+  "bg": "Трябва ти помощ за контролно по биология. Кой промпт дава най-добър резултат?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W082",
+  "en": "“Help me with biology.”",
+  "bg": "„Помогни ми с биологията.“",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W083",
+  "en": "“You're a friendly bio teacher. Quiz me on photosynthesis with 5 questions, easy to hard.”",
+  "bg": "„Ти си готин учител по биология. Изпитай ме върху фотосинтезата с 5 въпроса — от лесни към трудни.“",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W084",
+  "en": "“Write everything about biology.”",
+  "bg": "„Напиши всичко за биологията.“",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W085",
+  "en": "Role + task + format. That's the recipe.",
+  "bg": "Роля + задача + формат. Това е рецептата.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W086",
+  "en": "Too vague — AI will guess, and it'll guess boring.",
+  "bg": "Твърде общо — AI ще гадае, и резултатът ще е скучен.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W087",
+  "en": "The first answer you get is mediocre. What do pros do?",
+  "bg": "Получаваш посредствен отговор. Какво би направил професионалист?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W088",
+  "en": "Give up — AI just isn't good at this",
+  "bg": "Отказва се — AI явно не става за това",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W089",
+  "en": "Copy it anyway, who cares",
+  "bg": "Копира го както си е — и бездруго никой няма да забележи",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W090",
+  "en": "Reply with what to change: 'shorter, funnier, give 3 versions'",
+  "bg": "Пише какво да се промени: „по-кратко, по-смешно, дай 3 варианта“",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W091",
+  "en": "Exactly. Iteration is the real skill.",
+  "bg": "Точно така. Итерацията е истинското умение.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W092",
+  "en": "Nope — the magic happens in round 2 and 3.",
+  "bg": "Не — магията става във втория и третия рунд.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "prompting.html"
+  ]
+ },
+ {
+  "id": "W093",
+  "en": "Lesson 02 · 5 min",
+  "bg": "Урок 02 · 5 мин",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W094",
+  "en": "AI can fake faces, voices, and facts — confidently. Here's your built-in lie detector, in three habits.",
+  "bg": "AI умее да фалшифицира лица, гласове и факти — при това убедително. Ето как да си изградиш детектор за лъжи в три навика.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W095",
+  "en": "Confidence ≠ correctness",
+  "bg": "Уверен тон ≠ истина",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W096",
+  "en": "AI never sounds unsure — even when it's inventing facts, quotes, and sources. That's called a hallucination, and it arrives in the same confident tone as the truth.",
+  "bg": "AI никога не звучи колебливо — дори когато си измисля факти, цитати и източници. Това се нарича халюцинация и идва със същия уверен тон, с който идва и истината.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W097",
+  "en": "Rule: the more specific the claim (names, dates, numbers), the more it needs checking.",
+  "bg": "Правило: колкото по-конкретно е твърдението (имена, дати, числа), толкова по-задължителна е проверката.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W098",
+  "en": "Deepfakes: check the boring details",
+  "bg": "Дийпфейкове: гледай скучните детайли",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W099",
+  "en": "Fake images get the face right and the boring stuff wrong: hands, teeth, text on signs, reflections, backgrounds that melt. Videos slip on lip-sync and blinking.",
+  "bg": "Фалшивите снимки уцелват лицето, но се провалят в скучните детайли: ръце, зъби, надписи, отражения, размазани фонове. При видеата се гледа синхронът на устните и мигането.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W100",
+  "en": "Best check of all: would this person really say this? Who benefits if you believe it?",
+  "bg": "Най-добрата проверка: този човек наистина ли би казал това? Кой печели, ако повярваш?",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W101",
+  "en": "Triangulate like a journalist",
+  "bg": "Проверявай като журналист",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W102",
+  "en": "One source is a rumor. Before you share something wild, find it in two more places that aren't quoting each other. Takes 30 seconds, saves you from being 'that person' in the group chat.",
+  "bg": "Един източник си е слух. Преди да споделиш нещо гръмко, открий го на още две места, които не се позовават едно на друго. Отнема 30 секунди — и те спасява от ролята на „онзи с фалшивата новина“ в групата.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W103",
+  "en": "Got fooled",
+  "bg": "Върза се",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W104",
+  "en": "See shocking post → feel outrage → share instantly",
+  "bg": "Виждаш шокиращ пост → възмущаваш се → споделяш веднага",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W105",
+  "en": "Too smart for that",
+  "bg": "Не се връзваш",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W106",
+  "en": "See shocking post → pause → check 2 sources → then decide",
+  "bg": "Виждаш шокиращ пост → изчакваш → проверяваш два източника → чак тогава решаваш",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W107",
+  "en": "Challenge · can you spot it?",
+  "bg": "Предизвикателство · ще го хванеш ли?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W108",
+  "en": "Real or fake?",
+  "bg": "Истинско или фалшиво?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W109",
+  "en": "An AI tells you: “Studies by Dr. Elena Markov (2024) prove fish can recognize their owners' voices.” What's the red flag?",
+  "bg": "AI ти казва: „Изследване на д-р Елена Маркова (2024) доказва, че рибите разпознават гласа на стопаните си.“ Какво трябва да ти направи впечатление?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W110",
+  "en": "Nothing — it cited a study, so it's true",
+  "bg": "Нищо — цитира изследване, значи е вярно",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W111",
+  "en": "Specific name + year + bold claim = exactly what hallucinations look like. Verify first.",
+  "bg": "Конкретно име + година + гръмко твърдение = класическа халюцинация. Първо провери.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W112",
+  "en": "Fish are obviously fake",
+  "bg": "Рибите очевидно са измислени",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W113",
+  "en": "Citations can be 100% invented. Always check the source exists.",
+  "bg": "Цитатите може да са 100% измислени. Винаги проверявай дали източникът съществува.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W114",
+  "en": "AI invents very official-sounding studies all the time.",
+  "bg": "AI постоянно си измисля изследвания, които звучат напълно официално.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W115",
+  "en": "A video of a famous person saying something outrageous appears in your feed. First move?",
+  "bg": "Във фийда ти изскача видео, в което известна личност казва нещо скандално. Какво правиш първо?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W116",
+  "en": "Share it — people need to know!",
+  "bg": "Споделям го — хората трябва да знаят!",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W117",
+  "en": "Check if real news sources are reporting it",
+  "bg": "Проверявам дали сериозни медии съобщават за това",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W118",
+  "en": "Comment something angry immediately",
+  "bg": "Веднага коментирам нещо гневно",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W119",
+  "en": "If it were real, it'd be everywhere within the hour.",
+  "bg": "Ако беше истинско, щеше да е навсякъде до час.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W120",
+  "en": "That's exactly the reaction fakes are designed to trigger.",
+  "bg": "Фалшивите видеа разчитат точно на тази реакция.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "spot-the-fakes.html"
+  ]
+ },
+ {
+  "id": "W121",
+  "en": "Lesson 03 · 5 min",
+  "bg": "Урок 03 · 5 мин",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W122",
+  "en": "Music, art, apps, videos — the distance between 'I have an idea' and 'I made a thing' has never been shorter. Here's how to cross it.",
+  "bg": "Музика, изкуство, приложения, видео — пътят от „имам идея“ до „взех че го направих“ никога не е бил по-кратък. Ето как да го извървиш.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W123",
+  "en": "Start embarrassingly small",
+  "bg": "Започни от смешно малкото",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W124",
+  "en": "Don't 'make an album' — make 8 seconds of a beat. Don't 'build an app' — make a button that does one thing. AI is amazing at turning tiny ideas into working first drafts, and tiny wins stack fast.",
+  "bg": "Не се захващай с „албум“ — направи 8 секунди бийт. Не „строй приложение“ — направи един бутон, който върши едно нещо. AI е страхотен в превръщането на дребни идеи в работещи първи версии, а малките победи бързо се трупат.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W125",
+  "en": "Finished and small beats perfect and imaginary. Every time.",
+  "bg": "Малкото, но завършено, винаги бие голямото, но въображаемо.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W126",
+  "en": "You're the director, not the typist",
+  "bg": "Ти си режисьорът, не машинописецът",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W127",
+  "en": "AI generates options; you make the calls. Which version is better? What's missing? What feels off? That judgment is called taste — and it's the one part AI can't do for you.",
+  "bg": "AI генерира варианти; ти взимаш решенията. Коя версия е по-добра? Какво липсва? Кое не е наред? Тази преценка се нарича вкус — и е единствената част, която AI не може да свърши вместо теб.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W128",
+  "en": "Typist",
+  "bg": "Машинописец",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W129",
+  "en": "“Make me a song.” → accepts whatever comes out",
+  "bg": "„Направи ми песен.“ → приема каквото излезе",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W130",
+  "en": "Director",
+  "bg": "Режисьор",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W131",
+  "en": "“Darker. Slower intro. Keep the hook, cut verse 2.” → it's yours now",
+  "bg": "„По-мрачно. По-бавно интро. Запази припева, махни втория куплет.“ → вече е твое",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W132",
+  "en": "Say what AI did. Own what you did.",
+  "bg": "Признай какво е направил AI. Гордей се с твоето.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W133",
+  "en": "Used AI for the artwork? Say so. Wrote the melody yourself? Own it loudly. Creators who are honest about their process get trusted — and trust is the whole currency of making things.",
+  "bg": "Ползвал си AI за обложката? Кажи го. Сам си написал мелодията? Заяви го на висок глас. Хората вярват на създатели, които са честни за процеса си — а доверието е най-ценната валута, когато твориш.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W134",
+  "en": "“AI helped” is a normal sentence now. “AI made it, I said I did” is not.",
+  "bg": "„AI ми помогна“ е съвсем нормално изречение. „AI го направи, но казах, че съм аз“ — не е.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W135",
+  "en": "Director or typist?",
+  "bg": "Режисьор или машинописец?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W136",
+  "en": "You want to make a short film poster with AI. What's the 'director' move?",
+  "bg": "Искаш да направиш постер за късометражен филм с AI. Кой е „режисьорският“ ход?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W137",
+  "en": "Generate one image and use it as-is",
+  "bg": "Генерирам една картинка и я ползвам както си е",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W138",
+  "en": "Generate 10 versions, pick the strongest, then push it: 'moodier, bigger title, less clutter'",
+  "bg": "Генерирам 10 версии, избирам най-силната и я доразвивам: „по-мрачно, по-голямо заглавие, по-чисто“",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W139",
+  "en": "Ask AI which one it likes best and trust it",
+  "bg": "Питам AI коя му харесва и се доверявам на избора му",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W140",
+  "en": "Taste + iteration. That poster is yours now.",
+  "bg": "Вкус + итерация. Този постер вече е твой.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W141",
+  "en": "The first output is raw material, not the final cut.",
+  "bg": "Първият резултат е суров материал, не финален кадър.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W142",
+  "en": "You made a track where AI generated the beat and you wrote and recorded the vocals. What do you tell people?",
+  "bg": "Направил си парче: AI е генерирал бийта, а ти си написал текста и си записал вокалите. Какво казваш на хората?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W143",
+  "en": "Nothing — nobody needs to know",
+  "bg": "Нищо — никой не трябва да знае",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W144",
+  "en": "“100% made by me, every sound”",
+  "bg": "„100% направено от мен, всеки звук“",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W145",
+  "en": "“AI beat, my lyrics and vocals” — simple and true",
+  "bg": "„Бийтът е от AI, текстът и вокалите са мои“ — просто и честно",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W146",
+  "en": "Honest credit makes the parts YOU made hit harder.",
+  "bg": "Когато си честен, частите, които наистина са твои, тежат повече.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W147",
+  "en": "Getting caught overclaiming costs more than sharing credit ever will.",
+  "bg": "Хванат ли те да си приписваш чуждото, губиш много повече, отколкото ако просто си признаеш.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "make-things.html"
+  ]
+ },
+ {
+  "id": "W148",
+  "en": "Lesson 04 · 5 min",
+  "bg": "Урок 04 · 5 мин",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W149",
+  "en": "There's a version of using AI that makes you smarter and a version that makes you dumber — and they look almost identical from the outside. Here's the difference.",
+  "bg": "AI може да те направи и по-умен, и по-мързелив — а отстрани двете изглеждат почти еднакво. Ето каква е разликата.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W150",
+  "en": "The tutor move, not the ghostwriter move",
+  "bg": "Учител — да. Писател в сянка — не.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W151",
+  "en": "Same tool, opposite outcomes. Ask AI to write your essay and you've learned nothing (and it usually shows). Ask it to explain, quiz you, and poke holes in YOUR draft — now you have a 24/7 personal tutor.",
+  "bg": "Един и същ инструмент, два противоположни резултата. Оставиш ли AI да ти напише есето, не научаваш нищо (и обикновено си личи). Накараш ли го да ти обяснява, да те изпитва и да търси слабости в ТВОЯТА чернова — вече имаш личен учител, наличен денонощно.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W152",
+  "en": "Ghostwriter",
+  "bg": "Писател в сянка",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W153",
+  "en": "“Write my history essay about the Bulgarian Revival.”",
+  "bg": "„Напиши ми есето по история за Българското възраждане.“",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W154",
+  "en": "You hand in words you don't understand.",
+  "bg": "Предаваш думи, които не разбираш.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W155",
+  "en": "Tutor",
+  "bg": "Учител",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W156",
+  "en": "“Here's my draft. What's my weakest argument? What would a teacher ask me?”",
+  "bg": "„Ето я черновата ми. Кой е най-слабият ми аргумент? Какво би ме попитал учителят?“",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W157",
+  "en": "Your essay, leveled up. Your brain, also.",
+  "bg": "Есето ти става по-добро. Ти — също.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W158",
+  "en": "Study modes that actually work",
+  "bg": "Начини за учене, които наистина работят",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W159",
+  "en": "Three magic phrases: “Quiz me on this until I get 5 in a row.” “Explain it like I'm 12, then like I'm 18.” “I'll explain it back to you — tell me what I got wrong.” That last one is the strongest learning trick known to science.",
+  "bg": "Три магически фрази: „Изпитвай ме, докато отговоря вярно 5 пъти поред.“ „Обясни ми го като на 12-годишен, а после като на 18-годишен.“ „Сега аз ще ти го обясня — кажи ми къде бъркам.“ Последната е най-мощният трик за учене, известен на науката.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W160",
+  "en": "Before a test: paste your notes and ask for the 10 questions most likely to come up.",
+  "bg": "Преди контролно: пусни му записките си и поискай десетте най-вероятни въпроса.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W161",
+  "en": "Know where the line is",
+  "bg": "Знай къде е границата",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W162",
+  "en": "Every school's rules differ, but the honest test is simple: could you explain and defend every sentence you handed in? If yes, AI was a tool. If no, it was a stand-in — and stand-ins get noticed.",
+  "bg": "Правилата във всяко училище са различни, но честната проверка е проста: можеш ли да обясниш и защитиш всяко изречение, което предаваш? Ако да — AI ти е бил инструмент. Ако не — бил ти е дубльор. А дубльорите рано или късно се забелязват.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W163",
+  "en": "The goal isn't to never use AI. It's to always be the smartest thing in the conversation.",
+  "bg": "Целта не е никога да не ползваш AI. Целта е винаги ти да си най-умното нещо в разговора.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W164",
+  "en": "One more thing",
+  "bg": "Още нещо",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W165",
+  "en": "Read the fine print",
+  "bg": "Прочети дребния шрифт",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W166",
+  "en": "Tutor or ghostwriter?",
+  "bg": "Учител или писател в сянка?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W167",
+  "en": "Big literature essay due Friday. Which use of AI actually helps you?",
+  "bg": "Имаш голямо есе по литература за петък. Кой вариант наистина ти помага?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W168",
+  "en": "“Write a 500-word essay on Pod Igoto.” Copy. Paste. Done.",
+  "bg": "„Напиши ми есе от 500 думи върху „Под игото“.“ Копираш, поставяш, готово.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W169",
+  "en": "Write your draft, then ask: “Challenge my main argument like a strict teacher.”",
+  "bg": "Пишеш си черновата и после му казваш: „Атакувай основния ми аргумент като строг учител.“",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W170",
+  "en": "Ask AI to make it 'sound smarter' and hand that in",
+  "bg": "Караш AI да го „изглади да звучи по-умно“ и предаваш направо това",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W171",
+  "en": "Your ideas survive contact with criticism = real learning.",
+  "bg": "Идеи, които издържат на критика = истинско учене.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W172",
+  "en": "If you can't defend it in class, it was never yours.",
+  "bg": "Ако не можеш да го защитиш в час, никога не е било твое.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W173",
+  "en": "What's the single most effective study prompt?",
+  "bg": "Кой е най-ефективният промпт за учене?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W174",
+  "en": "“Summarize this chapter so I don't have to read it”",
+  "bg": "„Резюмирай ми тази глава, че да не я чета“",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W175",
+  "en": "“Give me all the answers to these exercises”",
+  "bg": "„Дай ми отговорите на всички задачи“",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W176",
+  "en": "“I'll explain this topic to you — tell me what I got wrong”",
+  "bg": "„Аз ще ти обясня темата — ти ми кажи къде бъркам“",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W177",
+  "en": "Teaching it back is how you find the holes in your knowledge.",
+  "bg": "Когато преподаваш материала обратно, сам откриваш дупките в знанията си.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W178",
+  "en": "Shortcuts feel great until the test is on paper and the AI is at home.",
+  "bg": "Преките пътища работят чудесно — докато не дойде контролното на хартия, а AI-ят си остане вкъщи.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "ai-for-school.html"
+  ]
+ },
+ {
+  "id": "W179",
+  "en": "⚠ Required reading · 4 min",
+  "bg": "⚠ Задължително четиво · 4 мин",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W180",
+  "en": "The most useful thing we can teach you isn't how to use AI — it's how to not get fooled by it. Five things to watch for.",
+  "bg": "Най-полезното, което можем да те научим, не е как да ползваш AI — а как да не се подведеш по него. Пет неща, за които да внимаваш.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W181",
+  "en": "It'll agree with you. Even when you're wrong.",
+  "bg": "Ще се съгласи с теб. Дори когато грешиш.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W182",
+  "en": "AI is trained to please you, so it often tells you what you want to hear — a habit called sycophancy. Push back on a right answer and it may cave and 'agree.' It is not a judge of truth, and a confident tone is not proof.",
+  "bg": "AI е обучен да ти угажда, затова често казва това, което искаш да чуеш — на това му казват подмазване (sycophancy). Възразиш ли му дори на верен отговор, той може да отстъпи и да се „съгласи“ с теб. AI не е съдник на истината, а увереният тон не е доказателство.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W183",
+  "en": "Do this:",
+  "bg": "Направи това:",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W184",
+  "en": "Ask it to argue the opposite side, and check anything that matters.",
+  "bg": "Накарай го да защити обратната теза — и проверявай всичко важно.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W185",
+  "en": "It makes things up",
+  "bg": "Измисля си неща",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W186",
+  "en": "AI can invent facts, fake quotes, and citations that don't exist — and state them with total confidence. These are called hallucinations.",
+  "bg": "AI си измисля факти, цитати и източници, които не съществуват — и ги поднася с пълна увереност. Това се нарича халюцинация.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W187",
+  "en": "Verify names, numbers, and sources before you trust them.",
+  "bg": "Проверявай имената, числата и източниците, преди да им се довериш.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W188",
+  "en": "It inherits our biases",
+  "bg": "Наследява нашите предразсъдъци",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W189",
+  "en": "AI learns from human-made data, so it can quietly repeat stereotypes and blind spots — and make them sound neutral and official.",
+  "bg": "AI учи от създадени от хора данни, затова неусетно повтаря човешките стереотипи и слепи петна — и ги поднася така, сякаш са неутрални факти.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W190",
+  "en": "Notice whose perspective is missing from the answer.",
+  "bg": "Питай се чия гледна точка липсва в отговора.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W191",
+  "en": "What you type isn't always private",
+  "bg": "Каквото пишеш, не винаги остава между вас",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W192",
+  "en": "Chats can be stored and used to train future models. Treat the box like a public postcard, not a private diary.",
+  "bg": "Разговорите може да се съхраняват и да се използват за обучение на бъдещи модели. Мисли за чата като за пощенска картичка, не като за личен дневник.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W193",
+  "en": "Never paste passwords, secrets, or other people's private info.",
+  "bg": "Никога не пиши там пароли, тайни или чужди лични данни.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W194",
+  "en": "It can do your thinking for you",
+  "bg": "Може да мисли вместо теб",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W195",
+  "en": "Let AI write every essay and solve every problem and your own skills quietly stop growing. The goal is a power tool, not a crutch.",
+  "bg": "Оставиш ли AI да пише всяко есе и да решава всяка задача, твоите собствени умения тихо спират да растат. Той трябва да ти е мощен инструмент, а не патерица.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W196",
+  "en": "Try it yourself first, then use AI to check and level up.",
+  "bg": "Първо опитай сам, после ползвай AI за проверка и надграждане.",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W197",
+  "en": "Start from the top",
+  "bg": "Започни отначало",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W198",
+  "en": "Lesson 01 · Prompting",
+  "bg": "Урок 01 · Промптинг",
+  "kinds": [
+   "attr"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W199",
+  "en": "Challenge · don't get played",
+  "bg": "Предизвикателство · не се връзвай",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W200",
+  "en": "Can AI fool you?",
+  "bg": "Може ли AI да те преметне?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W201",
+  "en": "You tell AI its (correct) answer is wrong. It instantly apologizes and switches to your answer. What just happened?",
+  "bg": "Казваш на AI, че верният му отговор е грешен. Той веднага се извинява и приема твоя. Какво всъщност се случи?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W202",
+  "en": "It double-checked and realized I was right",
+  "bg": "Проверил е отново и е разбрал, че съм прав",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W203",
+  "en": "Sycophancy — it's trained to please me, not to defend the truth",
+  "bg": "Подмазване — обучен е да ми угажда, а не да защитава истината",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W204",
+  "en": "AI answers are random anyway",
+  "bg": "Отговорите на AI така или иначе са случайни",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W205",
+  "en": "Exactly. Agreement is not evidence.",
+  "bg": "Точно така. Съгласието не е доказателство.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W206",
+  "en": "It caved because you pushed — that's the people-pleasing reflex.",
+  "bg": "Отстъпи, защото ти настоя — рефлексът да угажда надделя.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W207",
+  "en": "Which of these is safe to paste into an AI chat?",
+  "bg": "Кое от изброените е безопасно да пуснеш в AI чат?",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W208",
+  "en": "Your friend's address and phone number",
+  "bg": "Адреса и телефона на приятел",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W209",
+  "en": "Your school login password",
+  "bg": "Паролата си за училищната система",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W210",
+  "en": "A paragraph from your own essay draft",
+  "bg": "Абзац от собствената си чернова на есе",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W211",
+  "en": "Your own work is fine. Passwords and other people's info — never.",
+  "bg": "Собствените ти текстове са окей. Пароли и чужди данни — никога.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ },
+ {
+  "id": "W212",
+  "en": "Treat the chat box like a postcard: never secrets, never other people's info.",
+  "bg": "Мисли за чата като за пощенска картичка: без тайни и без чужди данни.",
+  "kinds": [
+   "js"
+  ],
+  "files": [
+   "fine-print.html"
+  ]
+ }
+]

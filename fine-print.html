@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Walle — The Fine Print</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* Walle shared styles — tokens, nav, footer, lesson components */
+:root{
+  --ink:#1a1613;
+  --ink-soft:#4a423b;
+  --canvas:#f8f1e7;
+  --paper:#fffaf2;
+  --blue:#2f49ff;
+  --blue-deep:#1f31b8;
+  --pink:#ff4d8d;
+  --lime:#c6f53b;
+  --yellow:#ffc73a;
+  --sky:#7ed0ff;
+  --line:rgba(26,22,19,0.14);
+  --shadow:8px 8px 0 var(--ink);
+  --shadow-sm:4px 4px 0 var(--ink);
+  --radius:22px;
+  --maxw:1180px;
+  --display:"Unbounded",system-ui,sans-serif;
+  --body:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);background:var(--canvas);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;width:100%;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--lime);color:var(--ink);}
+
+/* background blobs */
+.bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.85;mix-blend-mode:multiply;}
+.b1{width:520px;height:520px;background:var(--blue);top:-180px;right:-120px;animation:float1 16s ease-in-out infinite;}
+.b2{width:360px;height:360px;background:var(--pink);top:38%;left:-150px;animation:float2 19s ease-in-out infinite;}
+.b3{width:300px;height:300px;background:var(--lime);bottom:-120px;right:8%;animation:float1 22s ease-in-out infinite;}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-40px,40px) scale(1.08);}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(50px,-30px) scale(1.12);}}
+.grain{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+main,header{position:relative;z-index:1;}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgba(248,241,231,0.72);border-bottom:2px solid var(--ink);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px;}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:25px;letter-spacing:-.02em;flex:none;}
+.brand .mark{width:34px;height:34px;border-radius:50%;background:var(--blue);border:2px solid var(--ink);position:relative;flex:none;}
+.brand .mark::before,.brand .mark::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--paper);top:11px;}
+.brand .mark::before{left:7px;}
+.brand .mark::after{right:7px;animation:blink 5s infinite;}
+@keyframes blink{0%,92%,100%{transform:scaleY(1);}96%{transform:scaleY(.1);}}
+.nav-links{display:flex;align-items:center;gap:4px;flex:1;justify-content:center;flex-wrap:wrap;}
+.nav-links a{display:inline-block;white-space:nowrap;font-family:var(--body);font-weight:700;font-size:14px;padding:7px 13px;border-radius:999px;border:2px solid transparent;transition:background .12s,border-color .12s;}
+.nav-links a:hover{background:var(--yellow);border-color:var(--ink);}
+.nav-links a.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.nav-right{display:flex;align-items:center;gap:14px;flex:none;}
+.lang{display:flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden;background:var(--paper);font-family:var(--display);font-weight:600;font-size:13px;}
+.lang button{border:0;background:transparent;padding:7px 13px;cursor:pointer;color:var(--ink);font:inherit;transition:background .15s;}
+.lang button.active{background:var(--ink);color:var(--paper);}
+
+/* buttons */
+.btn{font-family:var(--display);font-weight:700;cursor:pointer;border:2px solid var(--ink);border-radius:999px;display:inline-flex;align-items:center;gap:9px;transition:transform .12s ease,box-shadow .12s ease;}
+.btn:active{transform:translate(2px,2px);}
+.btn-primary{background:var(--blue);color:#fff;padding:12px 22px;font-size:15px;box-shadow:var(--shadow-sm);}
+.btn-primary:hover{box-shadow:6px 6px 0 var(--ink);transform:translate(-1px,-1px);}
+.btn-ghost{background:var(--paper);color:var(--ink);padding:12px 22px;font-size:15px;}
+.btn-ghost:hover{background:var(--yellow);}
+
+/* footer */
+footer{border-top:2px solid var(--ink);padding:40px 0;background:var(--paper);position:relative;z-index:1;margin-top:auto;}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.foot .f-brand{font-family:var(--display);font-weight:700;font-size:16px;}
+.foot .f-note{font-size:14px;color:var(--ink-soft);font-weight:500;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+
+/* ---------- lesson page components ---------- */
+.lesson-hero{padding:58px 0 14px;}
+.crumb{font-family:var(--display);font-weight:600;font-size:13px;color:var(--ink-soft);display:inline-flex;gap:8px;align-items:center;}
+.crumb a:hover{color:var(--blue);}
+.lesson-badge{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);border-radius:999px;padding:7px 16px;font-family:var(--display);font-weight:700;font-size:13px;box-shadow:var(--shadow-sm);transform:rotate(-1.5deg);margin-top:20px;}
+.lesson-hero h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.6vw,64px);line-height:1;letter-spacing:-.03em;margin-top:20px;max-width:18ch;text-wrap:balance;}
+.lesson-hero .lede{font-size:clamp(16px,1.9vw,20px);color:var(--ink-soft);max-width:54ch;margin-top:20px;font-weight:500;}
+
+/* step cards */
+.steps{display:flex;flex-direction:column;gap:22px;padding:38px 0 10px;}
+.step{background:var(--paper);border:2.5px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;}
+.step-head{display:flex;align-items:center;gap:14px;padding:20px 26px;border-bottom:2px solid var(--ink);}
+.step-num{flex:none;width:42px;height:42px;border-radius:12px;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:17px;background:var(--yellow);}
+.step:nth-child(2) .step-num{background:var(--lime);}
+.step:nth-child(3) .step-num{background:var(--pink);color:#fff;}
+.step:nth-child(4) .step-num{background:var(--sky);}
+.step-head h2{font-family:var(--display);font-weight:800;font-size:clamp(19px,2.4vw,25px);letter-spacing:-.02em;line-height:1.05;}
+.step-body{padding:22px 26px 26px;}
+.step-body p{font-weight:500;font-size:16px;max-width:62ch;}
+.step-body p + p{margin-top:12px;}
+.step-body .tip{margin-top:16px;padding:13px 17px;background:var(--canvas);border:2px dashed var(--ink);border-radius:12px;font-family:var(--display);font-weight:600;font-size:14.5px;display:flex;gap:10px;align-items:baseline;max-width:62ch;}
+.step-body .tip .star{color:var(--pink);flex:none;}
+
+/* before/after compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+.compare .pane{border:2px solid var(--ink);border-radius:14px;padding:16px 18px;background:var(--canvas);}
+.compare .pane .pane-tag{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:inline-block;padding:3px 10px;border-radius:999px;border:2px solid var(--ink);}
+.compare .pane.bad .pane-tag{background:#ffd9d9;}
+.compare .pane.good .pane-tag{background:var(--lime);}
+.compare .pane .pane-text{margin-top:11px;font-weight:600;font-size:15px;line-height:1.45;}
+.compare .pane .pane-note{margin-top:9px;font-size:13px;color:var(--ink-soft);font-weight:600;}
+
+/* quiz */
+.quiz{margin:48px 0 10px;background:var(--ink);color:var(--paper);border-radius:var(--radius);border:2.5px solid var(--ink);overflow:hidden;}
+.quiz-head{padding:24px 28px 18px;}
+.quiz-kicker{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);}
+.quiz-head h2{font-family:var(--display);font-weight:800;font-size:clamp(21px,2.8vw,30px);letter-spacing:-.02em;margin-top:8px;line-height:1.05;}
+.quiz-body{padding:4px 28px 28px;}
+.quiz-q{font-weight:600;font-size:17px;margin-bottom:16px;color:rgba(255,250,242,.92);}
+.quiz-opts{display:flex;flex-direction:column;gap:10px;}
+.quiz-opt{text-align:left;font-family:var(--body);font-weight:700;font-size:15.5px;padding:14px 18px;border:2px solid rgba(255,250,242,.35);border-radius:13px;background:rgba(255,250,242,.05);color:var(--paper);cursor:pointer;transition:border-color .12s,background .12s,transform .12s;}
+.quiz-opt:hover{border-color:var(--lime);transform:translateX(4px);}
+.quiz-opt.correct{background:var(--lime);color:var(--ink);border-color:var(--lime);}
+.quiz-opt.wrong{background:var(--pink);color:#fff;border-color:var(--pink);}
+.quiz-opt:disabled{cursor:default;}
+.quiz-feedback{margin-top:16px;font-family:var(--display);font-weight:600;font-size:15px;padding:14px 18px;border-radius:12px;border:2px dashed rgba(255,250,242,.4);display:none;}
+.quiz-feedback.show{display:block;animation:pop .35s cubic-bezier(.2,1.3,.5,1) both;}
+.quiz-progress{font-family:var(--display);font-weight:600;font-size:12.5px;color:rgba(255,250,242,.6);margin-bottom:10px;}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98);}to{opacity:1;transform:none;}}
+
+/* next lesson footer band */
+.next-band{padding:46px 0 80px;}
+.next-card{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:var(--blue);color:#fff;border:2.5px solid var(--ink);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);transition:transform .14s,box-shadow .14s;}
+.next-card:hover{transform:translate(-2px,-3px);box-shadow:10px 11px 0 var(--ink);}
+.next-card .n-label{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;}
+.next-card .n-title{font-family:var(--display);font-weight:800;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-top:6px;}
+.next-card .n-arrow{font-family:var(--display);font-weight:800;font-size:34px;flex:none;}
+
+@media(max-width:760px){
+  .nav-links{display:none;}
+  .compare{grid-template-columns:1fr;}
+  .lesson-hero{padding-top:40px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;}
+  .reveal{opacity:1;transform:none;}
+}
+
+</style>
+<style>
+  .catch{padding:10px 0 60px;}
+  .catch-inner{background:var(--ink);color:var(--paper);border-radius:30px;padding:clamp(34px,5vw,64px);position:relative;overflow:hidden;}
+  .catch-inner::before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:var(--pink);top:-90px;right:-70px;opacity:.4;mix-blend-mode:screen;}
+  .warn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;position:relative;}
+  .warn{background:rgba(255,250,242,.04);border:2px solid rgba(255,250,242,.22);border-radius:18px;padding:24px 24px 22px;transition:border-color .15s,background .15s,transform .15s;}
+  .warn:hover{transform:translate(-2px,-3px);border-color:var(--lime);background:rgba(255,250,242,.07);}
+  .warn .w-top{display:flex;align-items:center;gap:12px;}
+  .warn .w-ico{flex:none;width:40px;height:40px;border-radius:11px;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:18px;color:var(--ink);}
+  .warn.w1 .w-ico{background:var(--lime);}
+  .warn.w2 .w-ico{background:var(--yellow);}
+  .warn.w3 .w-ico{background:var(--pink);color:#fff;}
+  .warn.w4 .w-ico{background:var(--sky);}
+  .warn.w5 .w-ico{background:var(--lime);}
+  .warn h2{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em;line-height:1.05;}
+  .warn p{color:rgba(255,250,242,.74);font-size:15px;font-weight:500;margin-top:11px;line-height:1.5;}
+  .warn .fix{margin-top:13px;font-size:13.5px;font-weight:700;color:var(--lime);display:flex;gap:8px;align-items:baseline;}
+  .warn .fix b{font-family:var(--display);font-weight:700;color:#fff;flex:none;}
+  .warn.feature{grid-column:1 / -1;display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:rgba(198,245,59,.08);border-color:var(--lime);}
+  .warn.feature .w-body{flex:1;min-width:240px;}
+  .warn.feature h2{font-size:22px;}
+  .warn.feature .quote{flex:none;width:230px;max-width:100%;background:var(--canvas);color:var(--ink);border:2px solid var(--ink);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-sm);transform:rotate(1.2deg);}
+  .warn.feature .quote .you{font-weight:700;font-size:13px;color:var(--ink-soft);}
+  .warn.feature .quote .ai{font-family:var(--display);font-weight:700;font-size:15px;margin-top:6px;line-height:1.25;}
+  .warn.feature .quote .ai .em{background:var(--pink);color:#fff;padding:0 5px;border-radius:5px;}
+  @media(max-width:760px){.warn-grid{grid-template-columns:1fr;}.warn.feature .quote{width:100%;}}
+</style>
+</head>
+<body data-lang="en">
+  <div class="bg-layer" aria-hidden="true">
+    <div class="blob b2"></div>
+    <div class="grain"></div>
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><span class="mark"></span>Walle</a>
+      <nav class="nav-links" id="nav-links"></nav>
+      <div class="nav-right">
+        <div class="lang" role="group" aria-label="Language">
+          <button data-setlang="en" class="active">EN</button>
+          <button data-setlang="bg">БГ</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="lesson-hero">
+      <div class="wrap">
+        <div class="crumb"><a href="index.html" data-en="← Home" data-bg="← Начало">← Home</a></div>
+        <span class="lesson-badge" style="background:var(--yellow);" data-en="⚠ Required reading · 4 min" data-bg="⚠ Задължително четиво · 4 мин">⚠ Required reading · 4 min</span>
+        <h1 data-en="AI is powerful. It's also not your friend." data-bg="AI е мощен. Но не ти е приятел.">AI is powerful. It's also not your friend.</h1>
+        <p class="lede" data-en="The most useful thing we can teach you isn't how to use AI — it's how to not get fooled by it. Five things to watch for." data-bg="Най-полезното, което можем да те научим, не е как да ползваш AI — а как да не се подведеш по него. Пет неща, за които да внимаваш.">The most useful thing we can teach you isn't how to use AI — it's how to not get fooled by it. Five things to watch for.</p>
+      </div>
+    </section>
+
+    <section class="catch" style="padding-top:38px;">
+      <div class="wrap">
+        <div class="catch-inner reveal">
+          <div class="warn-grid">
+            <article class="warn feature w1">
+              <div class="w-body">
+                <div class="w-top">
+                  <span class="w-ico">01</span>
+                  <h2 data-en="It'll agree with you. Even when you're wrong." data-bg="Ще се съгласи с теб. Дори когато грешиш.">It'll agree with you. Even when you're wrong.</h2>
+                </div>
+                <p data-en="AI is trained to please you, so it often tells you what you want to hear — a habit called sycophancy. Push back on a right answer and it may cave and 'agree.' It is not a judge of truth, and a confident tone is not proof." data-bg="AI е обучен да ти угажда, затова често казва това, което искаш да чуеш — на това му казват подмазване (sycophancy). Възразиш ли му дори на верен отговор, той може да отстъпи и да се „съгласи“ с теб. AI не е съдник на истината, а увереният тон не е доказателство.">AI is trained to please you, so it often tells you what you want to hear — a habit called sycophancy. Push back on a right answer and it may cave and 'agree.' It is not a judge of truth, and a confident tone is not proof.</p>
+                <div class="fix"><b data-en="Do this:" data-bg="Направи това:">Do this:</b><span data-en="Ask it to argue the opposite side, and check anything that matters." data-bg="Накарай го да защити обратната теза — и проверявай всичко важно.">Ask it to argue the opposite side, and check anything that matters.</span></div>
+              </div>
+              <div class="quote" aria-hidden="true">
+                <div class="you" data-en="You: Actually I think 7×8 = 54." data-bg="Ти: Всъщност мисля, че 7×8 = 54.">You: Actually I think 7×8 = 54.</div>
+                <div class="ai" data-en="AI: <span class='em'>You're absolutely right!</span> My mistake 🙃" data-bg="AI: <span class='em'>Напълно си прав!</span> Моя грешка 🙃">AI: <span class="em">You're absolutely right!</span> My mistake 🙃</div>
+              </div>
+            </article>
+
+            <article class="warn w2">
+              <div class="w-top"><span class="w-ico">02</span><h2 data-en="It makes things up" data-bg="Измисля си неща">It makes things up</h2></div>
+              <p data-en="AI can invent facts, fake quotes, and citations that don't exist — and state them with total confidence. These are called hallucinations." data-bg="AI си измисля факти, цитати и източници, които не съществуват — и ги поднася с пълна увереност. Това се нарича халюцинация.">AI can invent facts, fake quotes, and citations that don't exist — and state them with total confidence. These are called hallucinations.</p>
+              <div class="fix"><b data-en="Do this:" data-bg="Направи това:">Do this:</b><span data-en="Verify names, numbers, and sources before you trust them." data-bg="Проверявай имената, числата и източниците, преди да им се довериш.">Verify names, numbers, and sources before you trust them.</span></div>
+            </article>
+
+            <article class="warn w3">
+              <div class="w-top"><span class="w-ico">03</span><h2 data-en="It inherits our biases" data-bg="Наследява нашите предразсъдъци">It inherits our biases</h2></div>
+              <p data-en="AI learns from human-made data, so it can quietly repeat stereotypes and blind spots — and make them sound neutral and official." data-bg="AI учи от създадени от хора данни, затова неусетно повтаря човешките стереотипи и слепи петна — и ги поднася така, сякаш са неутрални факти.">AI learns from human-made data, so it can quietly repeat stereotypes and blind spots — and make them sound neutral and official.</p>
+              <div class="fix"><b data-en="Do this:" data-bg="Направи това:">Do this:</b><span data-en="Notice whose perspective is missing from the answer." data-bg="Питай се чия гледна точка липсва в отговора.">Notice whose perspective is missing from the answer.</span></div>
+            </article>
+
+            <article class="warn w4">
+              <div class="w-top"><span class="w-ico">04</span><h2 data-en="What you type isn't always private" data-bg="Каквото пишеш, не винаги остава между вас">What you type isn't always private</h2></div>
+              <p data-en="Chats can be stored and used to train future models. Treat the box like a public postcard, not a private diary." data-bg="Разговорите може да се съхраняват и да се използват за обучение на бъдещи модели. Мисли за чата като за пощенска картичка, не като за личен дневник.">Chats can be stored and used to train future models. Treat the box like a public postcard, not a private diary.</p>
+              <div class="fix"><b data-en="Do this:" data-bg="Направи това:">Do this:</b><span data-en="Never paste passwords, secrets, or other people's private info." data-bg="Никога не пиши там пароли, тайни или чужди лични данни.">Never paste passwords, secrets, or other people's private info.</span></div>
+            </article>
+
+            <article class="warn w5">
+              <div class="w-top"><span class="w-ico">05</span><h2 data-en="It can do your thinking for you" data-bg="Може да мисли вместо теб">It can do your thinking for you</h2></div>
+              <p data-en="Let AI write every essay and solve every problem and your own skills quietly stop growing. The goal is a power tool, not a crutch." data-bg="Оставиш ли AI да пише всяко есе и да решава всяка задача, твоите собствени умения тихо спират да растат. Той трябва да ти е мощен инструмент, а не патерица.">Let AI write every essay and solve every problem and your own skills quietly stop growing. The goal is a power tool, not a crutch.</p>
+              <div class="fix"><b data-en="Do this:" data-bg="Направи това:">Do this:</b><span data-en="Try it yourself first, then use AI to check and level up." data-bg="Първо опитай сам, после ползвай AI за проверка и надграждане.">Try it yourself first, then use AI to check and level up.</span></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="quiz reveal" id="quiz"></div>
+    </section>
+
+    <section class="wrap next-band">
+      <a class="next-card reveal" href="prompting.html">
+        <div>
+          <div class="n-label" data-en="Start from the top" data-bg="Започни отначало">Start from the top</div>
+          <div class="n-title" data-en="Lesson 01 · Prompting" data-bg="Урок 01 · Промптинг">Lesson 01 · Prompting</div>
+        </div>
+        <span class="n-arrow">→</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="f-brand"><span data-en="Walle · AI literacy for students in Bulgaria" data-bg="Walle · AI грамотност за ученици в България">Walle · AI literacy for students in Bulgaria</span></div>
+      <div class="f-note" data-en="Made with caffeine and good intentions." data-bg="Направено с кофеин и добри намерения.">Made with caffeine and good intentions.</div>
+    </div>
+  </footer>
+
+<script>
+/* Walle shared JS — nav, i18n, reveal, quiz engine */
+(function(){
+  "use strict";
+
+  /* ---------- nav ---------- */
+  var PAGES = [
+    {file:"index.html", en:"Home",            bg:"Начало"},
+    {file:"prompting.html",          en:"Prompting",       bg:"Промптинг"},
+    {file:"spot-the-fakes.html",     en:"Spot the fakes",  bg:"Разпознай фалшивото"},
+    {file:"make-things.html",        en:"Make things",     bg:"Създавай"},
+    {file:"ai-for-school.html",      en:"For school",      bg:"За училище"},
+    {file:"fine-print.html",         en:"The fine print",  bg:"Дребният шрифт"}
+  ];
+
+  function currentFile(){
+    var p = decodeURIComponent(location.pathname);
+    return p.substring(p.lastIndexOf("/")+1) || PAGES[0].file;
+  }
+
+  function buildNav(){
+    var slot = document.getElementById("nav-links");
+    if(!slot) return;
+    var cur = currentFile();
+    PAGES.forEach(function(pg){
+      var a = document.createElement("a");
+      a.href = pg.file;
+      a.setAttribute("data-en", pg.en);
+      a.setAttribute("data-bg", pg.bg);
+      a.textContent = pg.en;
+      if(pg.file === cur) a.className = "active";
+      slot.appendChild(a);
+    });
+  }
+
+  /* ---------- i18n ---------- */
+  var lang = "en";
+  try { var saved = localStorage.getItem("walle-lang"); if(saved==="en"||saved==="bg") lang = saved; } catch(e){}
+
+  function applyLang(){
+    document.body.setAttribute("data-lang", lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-en]").forEach(function(el){
+      var v = el.getAttribute("data-"+lang);
+      if(v!=null) el.innerHTML = v;
+    });
+    document.querySelectorAll("[data-en-ph]").forEach(function(el){
+      var v = el.getAttribute("data-"+lang+"-ph");
+      if(v!=null) el.setAttribute("placeholder", v);
+    });
+    document.querySelectorAll("[data-setlang]").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-setlang")===lang);
+    });
+    try { localStorage.setItem("walle-lang", lang); } catch(e){}
+    document.dispatchEvent(new CustomEvent("walle:lang", {detail:{lang:lang}}));
+  }
+
+  function wireLang(){
+    document.querySelectorAll("[data-setlang]").forEach(function(b){
+      b.addEventListener("click", function(){ lang = b.getAttribute("data-setlang"); applyLang(); });
+    });
+  }
+
+  /* ---------- reveal (with fail-safe) ---------- */
+  function wireReveal(){
+    var reveals = document.querySelectorAll(".reveal");
+    function revealAll(){ reveals.forEach(function(el){ el.classList.add("in"); }); }
+    if("IntersectionObserver" in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+      }, {threshold:0.08, rootMargin:"0px 0px -8% 0px"});
+      reveals.forEach(function(el){ io.observe(el); });
+      setTimeout(revealAll, 1600);
+    } else { revealAll(); }
+  }
+
+  /* ---------- quiz engine ----------
+     Mount with: WalleQuiz(containerEl, {
+       kicker:{en,bg}, title:{en,bg},
+       questions:[{q:{en,bg}, opts:[{en,bg}...], correct:i, right:{en,bg}, wrong:{en,bg}}]
+     })
+  ----------------------------------- */
+  function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+
+  window.WalleQuiz = function(el, cfg){
+    var idx = 0, score = 0;
+    var UI = {
+      progress:{en:"Question", bg:"Въпрос"},
+      of:{en:"of", bg:"от"},
+      next:{en:"Next →", bg:"Напред →"},
+      done:{en:"See my result", bg:"Виж резултата"},
+      again:{en:"Play again", bg:"Играй пак"},
+      score:{en:"You got", bg:"Позна"},
+      outof:{en:"out of", bg:"от"}
+    };
+    function t(o){ return o[lang] || o.en; }
+
+    function finalLine(){
+      var n = cfg.questions.length;
+      var msgs = score===n
+        ? {en:"Perfect score. Honestly? Suspiciously good. 🏆", bg:"Пълно попадение. Чак подозрително добре. 🏆"}
+        : score >= Math.ceil(n/2)
+        ? {en:"Solid. You're harder to fool than most adults. 💪", bg:"Стабилно. Лъжеш се по-трудно от повечето възрастни. 💪"}
+        : {en:"Hey, that's why lessons exist. Run it back. 🔁", bg:"Е, затова има уроци. Пробвай пак. 🔁"};
+      return t(msgs);
+    }
+
+    function render(){
+      var html = '<div class="quiz-head">';
+      html += '<div class="quiz-kicker">'+esc(t(cfg.kicker))+'</div>';
+      html += '<h2>'+esc(t(cfg.title))+'</h2></div>';
+      html += '<div class="quiz-body">';
+      if(idx < cfg.questions.length){
+        var q = cfg.questions[idx];
+        html += '<div class="quiz-progress">'+esc(t(UI.progress))+' '+(idx+1)+' '+esc(t(UI.of))+' '+cfg.questions.length+'</div>';
+        html += '<div class="quiz-q">'+esc(t(q.q))+'</div>';
+        html += '<div class="quiz-opts">';
+        q.opts.forEach(function(o,i){
+          html += '<button type="button" class="quiz-opt" data-i="'+i+'">'+esc(t(o))+'</button>';
+        });
+        html += '</div><div class="quiz-feedback"></div>';
+      } else {
+        html += '<div class="quiz-q" style="font-family:var(--display);font-weight:800;font-size:24px;">'
+              + esc(t(UI.score))+' '+score+' '+esc(t(UI.outof))+' '+cfg.questions.length+'. '+esc(finalLine())
+              + '</div>';
+        html += '<button type="button" class="quiz-opt" data-again="1" style="max-width:220px;">'+esc(t(UI.again))+'</button>';
+      }
+      html += '</div>';
+      el.innerHTML = html;
+      wire();
+    }
+
+    function wire(){
+      var q = cfg.questions[idx];
+      el.querySelectorAll(".quiz-opt").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          if(btn.hasAttribute("data-again")){ idx=0; score=0; render(); return; }
+          var i = +btn.getAttribute("data-i");
+          var fb = el.querySelector(".quiz-feedback");
+          el.querySelectorAll(".quiz-opt").forEach(function(b){ b.disabled = true; });
+          if(i === q.correct){ score++; btn.classList.add("correct"); fb.textContent = "✓ " + t(q.right); }
+          else {
+            btn.classList.add("wrong");
+            var c = el.querySelector('.quiz-opt[data-i="'+q.correct+'"]');
+            if(c) c.classList.add("correct");
+            fb.textContent = "✗ " + t(q.wrong);
+          }
+          fb.classList.add("show");
+          var nx = document.createElement("button");
+          nx.type = "button"; nx.className = "quiz-opt"; nx.style.maxWidth = "180px"; nx.style.marginTop = "14px";
+          nx.textContent = (idx+1 < cfg.questions.length) ? t(UI.next) : t(UI.done);
+          nx.addEventListener("click", function(){ idx++; render(); });
+          el.querySelector(".quiz-body").appendChild(nx);
+        });
+      });
+    }
+
+    document.addEventListener("walle:lang", render);
+    render();
+  };
+
+  /* ---------- init ---------- */
+  buildNav();
+  wireLang();
+  applyLang();
+  wireReveal();
+})();
+
+</script>
+<script>
+WalleQuiz(document.getElementById("quiz"), {
+  kicker:{en:"Challenge · don't get played", bg:"Предизвикателство · не се връзвай"},
+  title:{en:"Can AI fool you?", bg:"Може ли AI да те преметне?"},
+  questions:[
+    {
+      q:{en:"You tell AI its (correct) answer is wrong. It instantly apologizes and switches to your answer. What just happened?",
+         bg:"Казваш на AI, че верният му отговор е грешен. Той веднага се извинява и приема твоя. Какво всъщност се случи?"},
+      opts:[
+        {en:"It double-checked and realized I was right", bg:"Проверил е отново и е разбрал, че съм прав"},
+        {en:"Sycophancy — it's trained to please me, not to defend the truth", bg:"Подмазване — обучен е да ми угажда, а не да защитава истината"},
+        {en:"AI answers are random anyway", bg:"Отговорите на AI така или иначе са случайни"}
+      ],
+      correct:1,
+      right:{en:"Exactly. Agreement is not evidence.", bg:"Точно така. Съгласието не е доказателство."},
+      wrong:{en:"It caved because you pushed — that's the people-pleasing reflex.", bg:"Отстъпи, защото ти настоя — рефлексът да угажда надделя."}
+    },
+    {
+      q:{en:"Which of these is safe to paste into an AI chat?",
+         bg:"Кое от изброените е безопасно да пуснеш в AI чат?"},
+      opts:[
+        {en:"Your friend's address and phone number", bg:"Адреса и телефона на приятел"},
+        {en:"Your school login password", bg:"Паролата си за училищната система"},
+        {en:"A paragraph from your own essay draft", bg:"Абзац от собствената си чернова на есе"}
+      ],
+      correct:2,
+      right:{en:"Your own work is fine. Passwords and other people's info — never.", bg:"Собствените ти текстове са окей. Пароли и чужди данни — никога."},
+      wrong:{en:"Treat the chat box like a postcard: never secrets, never other people's info.", bg:"Мисли за чата като за пощенска картичка: без тайни и без чужди данни."}
+    }
+  ]
+});
+</script>
+</body>
+</html>

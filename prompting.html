@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Walle — Prompting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* Walle shared styles — tokens, nav, footer, lesson components */
+:root{
+  --ink:#1a1613;
+  --ink-soft:#4a423b;
+  --canvas:#f8f1e7;
+  --paper:#fffaf2;
+  --blue:#2f49ff;
+  --blue-deep:#1f31b8;
+  --pink:#ff4d8d;
+  --lime:#c6f53b;
+  --yellow:#ffc73a;
+  --sky:#7ed0ff;
+  --line:rgba(26,22,19,0.14);
+  --shadow:8px 8px 0 var(--ink);
+  --shadow-sm:4px 4px 0 var(--ink);
+  --radius:22px;
+  --maxw:1180px;
+  --display:"Unbounded",system-ui,sans-serif;
+  --body:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);background:var(--canvas);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;width:100%;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--lime);color:var(--ink);}
+
+/* background blobs */
+.bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.85;mix-blend-mode:multiply;}
+.b1{width:520px;height:520px;background:var(--blue);top:-180px;right:-120px;animation:float1 16s ease-in-out infinite;}
+.b2{width:360px;height:360px;background:var(--pink);top:38%;left:-150px;animation:float2 19s ease-in-out infinite;}
+.b3{width:300px;height:300px;background:var(--lime);bottom:-120px;right:8%;animation:float1 22s ease-in-out infinite;}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-40px,40px) scale(1.08);}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(50px,-30px) scale(1.12);}}
+.grain{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+main,header{position:relative;z-index:1;}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgba(248,241,231,0.72);border-bottom:2px solid var(--ink);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px;}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:25px;letter-spacing:-.02em;flex:none;}
+.brand .mark{width:34px;height:34px;border-radius:50%;background:var(--blue);border:2px solid var(--ink);position:relative;flex:none;}
+.brand .mark::before,.brand .mark::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--paper);top:11px;}
+.brand .mark::before{left:7px;}
+.brand .mark::after{right:7px;animation:blink 5s infinite;}
+@keyframes blink{0%,92%,100%{transform:scaleY(1);}96%{transform:scaleY(.1);}}
+.nav-links{display:flex;align-items:center;gap:4px;flex:1;justify-content:center;flex-wrap:wrap;}
+.nav-links a{display:inline-block;white-space:nowrap;font-family:var(--body);font-weight:700;font-size:14px;padding:7px 13px;border-radius:999px;border:2px solid transparent;transition:background .12s,border-color .12s;}
+.nav-links a:hover{background:var(--yellow);border-color:var(--ink);}
+.nav-links a.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.nav-right{display:flex;align-items:center;gap:14px;flex:none;}
+.lang{display:flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden;background:var(--paper);font-family:var(--display);font-weight:600;font-size:13px;}
+.lang button{border:0;background:transparent;padding:7px 13px;cursor:pointer;color:var(--ink);font:inherit;transition:background .15s;}
+.lang button.active{background:var(--ink);color:var(--paper);}
+
+/* buttons */
+.btn{font-family:var(--display);font-weight:700;cursor:pointer;border:2px solid var(--ink);border-radius:999px;display:inline-flex;align-items:center;gap:9px;transition:transform .12s ease,box-shadow .12s ease;}
+.btn:active{transform:translate(2px,2px);}
+.btn-primary{background:var(--blue);color:#fff;padding:12px 22px;font-size:15px;box-shadow:var(--shadow-sm);}
+.btn-primary:hover{box-shadow:6px 6px 0 var(--ink);transform:translate(-1px,-1px);}
+.btn-ghost{background:var(--paper);color:var(--ink);padding:12px 22px;font-size:15px;}
+.btn-ghost:hover{background:var(--yellow);}
+
+/* footer */
+footer{border-top:2px solid var(--ink);padding:40px 0;background:var(--paper);position:relative;z-index:1;margin-top:auto;}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.foot .f-brand{font-family:var(--display);font-weight:700;font-size:16px;}
+.foot .f-note{font-size:14px;color:var(--ink-soft);font-weight:500;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+
+/* ---------- lesson page components ---------- */
+.lesson-hero{padding:58px 0 14px;}
+.crumb{font-family:var(--display);font-weight:600;font-size:13px;color:var(--ink-soft);display:inline-flex;gap:8px;align-items:center;}
+.crumb a:hover{color:var(--blue);}
+.lesson-badge{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);border-radius:999px;padding:7px 16px;font-family:var(--display);font-weight:700;font-size:13px;box-shadow:var(--shadow-sm);transform:rotate(-1.5deg);margin-top:20px;}
+.lesson-hero h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.6vw,64px);line-height:1;letter-spacing:-.03em;margin-top:20px;max-width:18ch;text-wrap:balance;}
+.lesson-hero .lede{font-size:clamp(16px,1.9vw,20px);color:var(--ink-soft);max-width:54ch;margin-top:20px;font-weight:500;}
+
+/* step cards */
+.steps{display:flex;flex-direction:column;gap:22px;padding:38px 0 10px;}
+.step{background:var(--paper);border:2.5px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;}
+.step-head{display:flex;align-items:center;gap:14px;padding:20px 26px;border-bottom:2px solid var(--ink);}
+.step-num{flex:none;width:42px;height:42px;border-radius:12px;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:17px;background:var(--yellow);}
+.step:nth-child(2) .step-num{background:var(--lime);}
+.step:nth-child(3) .step-num{background:var(--pink);color:#fff;}
+.step:nth-child(4) .step-num{background:var(--sky);}
+.step-head h2{font-family:var(--display);font-weight:800;font-size:clamp(19px,2.4vw,25px);letter-spacing:-.02em;line-height:1.05;}
+.step-body{padding:22px 26px 26px;}
+.step-body p{font-weight:500;font-size:16px;max-width:62ch;}
+.step-body p + p{margin-top:12px;}
+.step-body .tip{margin-top:16px;padding:13px 17px;background:var(--canvas);border:2px dashed var(--ink);border-radius:12px;font-family:var(--display);font-weight:600;font-size:14.5px;display:flex;gap:10px;align-items:baseline;max-width:62ch;}
+.step-body .tip .star{color:var(--pink);flex:none;}
+
+/* before/after compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+.compare .pane{border:2px solid var(--ink);border-radius:14px;padding:16px 18px;background:var(--canvas);}
+.compare .pane .pane-tag{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:inline-block;padding:3px 10px;border-radius:999px;border:2px solid var(--ink);}
+.compare .pane.bad .pane-tag{background:#ffd9d9;}
+.compare .pane.good .pane-tag{background:var(--lime);}
+.compare .pane .pane-text{margin-top:11px;font-weight:600;font-size:15px;line-height:1.45;}
+.compare .pane .pane-note{margin-top:9px;font-size:13px;color:var(--ink-soft);font-weight:600;}
+
+/* quiz */
+.quiz{margin:48px 0 10px;background:var(--ink);color:var(--paper);border-radius:var(--radius);border:2.5px solid var(--ink);overflow:hidden;}
+.quiz-head{padding:24px 28px 18px;}
+.quiz-kicker{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);}
+.quiz-head h2{font-family:var(--display);font-weight:800;font-size:clamp(21px,2.8vw,30px);letter-spacing:-.02em;margin-top:8px;line-height:1.05;}
+.quiz-body{padding:4px 28px 28px;}
+.quiz-q{font-weight:600;font-size:17px;margin-bottom:16px;color:rgba(255,250,242,.92);}
+.quiz-opts{display:flex;flex-direction:column;gap:10px;}
+.quiz-opt{text-align:left;font-family:var(--body);font-weight:700;font-size:15.5px;padding:14px 18px;border:2px solid rgba(255,250,242,.35);border-radius:13px;background:rgba(255,250,242,.05);color:var(--paper);cursor:pointer;transition:border-color .12s,background .12s,transform .12s;}
+.quiz-opt:hover{border-color:var(--lime);transform:translateX(4px);}
+.quiz-opt.correct{background:var(--lime);color:var(--ink);border-color:var(--lime);}
+.quiz-opt.wrong{background:var(--pink);color:#fff;border-color:var(--pink);}
+.quiz-opt:disabled{cursor:default;}
+.quiz-feedback{margin-top:16px;font-family:var(--display);font-weight:600;font-size:15px;padding:14px 18px;border-radius:12px;border:2px dashed rgba(255,250,242,.4);display:none;}
+.quiz-feedback.show{display:block;animation:pop .35s cubic-bezier(.2,1.3,.5,1) both;}
+.quiz-progress{font-family:var(--display);font-weight:600;font-size:12.5px;color:rgba(255,250,242,.6);margin-bottom:10px;}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98);}to{opacity:1;transform:none;}}
+
+/* next lesson footer band */
+.next-band{padding:46px 0 80px;}
+.next-card{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:var(--blue);color:#fff;border:2.5px solid var(--ink);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);transition:transform .14s,box-shadow .14s;}
+.next-card:hover{transform:translate(-2px,-3px);box-shadow:10px 11px 0 var(--ink);}
+.next-card .n-label{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;}
+.next-card .n-title{font-family:var(--display);font-weight:800;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-top:6px;}
+.next-card .n-arrow{font-family:var(--display);font-weight:800;font-size:34px;flex:none;}
+
+@media(max-width:760px){
+  .nav-links{display:none;}
+  .compare{grid-template-columns:1fr;}
+  .lesson-hero{padding-top:40px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;}
+  .reveal{opacity:1;transform:none;}
+}
+
+</style>
+</head>
+<body data-lang="en">
+  <div class="bg-layer" aria-hidden="true">
+    <div class="blob b1" style="background:var(--yellow);"></div>
+    <div class="blob b2"></div>
+    <div class="grain"></div>
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><span class="mark"></span>Walle</a>
+      <nav class="nav-links" id="nav-links"></nav>
+      <div class="nav-right">
+        <div class="lang" role="group" aria-label="Language">
+          <button data-setlang="en" class="active">EN</button>
+          <button data-setlang="bg">БГ</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="lesson-hero">
+      <div class="wrap">
+        <div class="crumb"><a href="index.html" data-en="← Home" data-bg="← Начало">← Home</a></div>
+        <span class="lesson-badge" style="background:var(--yellow);" data-en="Lesson 01 · 5 min" data-bg="Урок 01 · 5 мин">Lesson 01 · 5 min</span>
+        <h1 data-en="Talk to AI like you mean it" data-bg="Говори с AI така, че да те разбере">Talk to AI like you mean it</h1>
+        <p class="lede" data-en="AI gives lazy answers to lazy questions. Three small upgrades and yours go from 'meh' to 'whoa'." data-bg="На мързелив въпрос AI отговаря мързеливо. Три малки трика — и отговорите ти минават от „горе-долу“ към „уау“.">AI gives lazy answers to lazy questions. Three small upgrades and yours go from 'meh' to 'whoa'.</p>
+      </div>
+    </section>
+
+    <section class="wrap steps">
+      <article class="step reveal">
+        <div class="step-head"><span class="step-num">01</span><h2 data-en="Be specific. Painfully specific." data-bg="Бъди конкретен. Болезнено конкретен.">Be specific. Painfully specific.</h2></div>
+        <div class="step-body">
+          <p data-en="AI can't read your mind. The detail you leave out is the detail it makes up. Say who it's for, how long, and what style." data-bg="AI не чете мисли. Каквото не му кажеш, той ще си го измисли. Уточни за кого е, колко дълго да бъде и в какъв стил.">AI can't read your mind. The detail you leave out is the detail it makes up. Say who it's for, how long, and what style.</p>
+          <div class="compare">
+            <div class="pane bad">
+              <span class="pane-tag" data-en="Meh" data-bg="Горе-долу">Meh</span>
+              <div class="pane-text" data-en="“Write about climate change.”" data-bg="„Напиши за климатичните промени.“">“Write about climate change.”</div>
+              <div class="pane-note" data-en="Gets: a generic essay nobody asked for." data-bg="Резултат: безлично есе, което никой няма да прочете.">Gets: a generic essay nobody asked for.</div>
+            </div>
+            <div class="pane good">
+              <span class="pane-tag" data-en="Whoa" data-bg="Уау">Whoa</span>
+              <div class="pane-text" data-en="“Explain 3 surprising climate facts to a 16-year-old, 100 words, make it funny.”" data-bg="„Обясни ми 3 изненадващи факта за климата, все едно говориш с 16-годишен. До 100 думи, със закачка.“">“Explain 3 surprising climate facts to a 16-year-old, 100 words, make it funny.”</div>
+              <div class="pane-note" data-en="Gets: something you'd actually read." data-bg="Резултат: текст, който наистина ти се чете.">Gets: something you'd actually read.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="step reveal">
+        <div class="step-head"><span class="step-num">02</span><h2 data-en="Give it a role" data-bg="Дай му роля">Give it a role</h2></div>
+        <div class="step-body">
+          <p data-en="Start with 'You are a…' and watch the answer transform. A football coach, a strict editor, a friendly physics teacher — the role sets the tone, the depth, and the attitude." data-bg="Започни с „Ти си…“ и виж как отговорът се променя. Футболен треньор, строг редактор, готин учител по физика — ролята определя тона, дълбочината и отношението.">Start with 'You are a…' and watch the answer transform. A football coach, a strict editor, a friendly physics teacher — the role sets the tone, the depth, and the attitude.</p>
+          <div class="tip"><span class="star">✦</span><span data-en="Try: “You are a tough debate judge. Find the 3 weakest points in my argument.”" data-bg="Пробвай: „Ти си строг съдия на дебати. Посочи трите най-слаби места в аргументите ми.“">Try: “You are a tough debate judge. Find the 3 weakest points in my argument.”</span></div>
+        </div>
+      </article>
+
+      <article class="step reveal">
+        <div class="step-head"><span class="step-num">03</span><h2 data-en="Don't settle for draft #1" data-bg="Не спирай на първата чернова">Don't settle for draft #1</h2></div>
+        <div class="step-body">
+          <p data-en="The first answer is a starting point, not the finish line. Reply with 'shorter', 'funnier', 'give me 3 versions', 'now argue the opposite'. Each round gets better — that's the whole game." data-bg="Първият отговор е отправна точка, не краен резултат. Връщай се с „по-кратко“, „по-смешно“, „дай ми 3 варианта“, „а сега защити обратната теза“. С всеки рунд става по-добре — там е целият номер.">The first answer is a starting point, not the finish line. Reply with 'shorter', 'funnier', 'give me 3 versions', 'now argue the opposite'. Each round gets better — that's the whole game.</p>
+          <div class="tip"><span class="star">✦</span><span data-en="Pros don't write better first prompts. They just don't stop at the first answer." data-bg="Професионалистите не пишат по-добри първи промптове. Просто не спират на първия отговор.">Pros don't write better first prompts. They just don't stop at the first answer.</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="wrap">
+      <div class="quiz reveal" id="quiz"></div>
+    </section>
+
+    <section class="wrap next-band">
+      <a class="next-card reveal" href="spot-the-fakes.html">
+        <div>
+          <div class="n-label" data-en="Next lesson" data-bg="Следващ урок">Next lesson</div>
+          <div class="n-title" data-en="Spot the fakes" data-bg="Разпознай фалшивото">Spot the fakes</div>
+        </div>
+        <span class="n-arrow">→</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="f-brand"><span data-en="Walle · AI literacy for students in Bulgaria" data-bg="Walle · AI грамотност за ученици в България">Walle · AI literacy for students in Bulgaria</span></div>
+      <div class="f-note" data-en="Made with caffeine and good intentions." data-bg="Направено с кофеин и добри намерения.">Made with caffeine and good intentions.</div>
+    </div>
+  </footer>
+
+<script>
+/* Walle shared JS — nav, i18n, reveal, quiz engine */
+(function(){
+  "use strict";
+
+  /* ---------- nav ---------- */
+  var PAGES = [
+    {file:"index.html", en:"Home",            bg:"Начало"},
+    {file:"prompting.html",          en:"Prompting",       bg:"Промптинг"},
+    {file:"spot-the-fakes.html",     en:"Spot the fakes",  bg:"Разпознай фалшивото"},
+    {file:"make-things.html",        en:"Make things",     bg:"Създавай"},
+    {file:"ai-for-school.html",      en:"For school",      bg:"За училище"},
+    {file:"fine-print.html",         en:"The fine print",  bg:"Дребният шрифт"}
+  ];
+
+  function currentFile(){
+    var p = decodeURIComponent(location.pathname);
+    return p.substring(p.lastIndexOf("/")+1) || PAGES[0].file;
+  }
+
+  function buildNav(){
+    var slot = document.getElementById("nav-links");
+    if(!slot) return;
+    var cur = currentFile();
+    PAGES.forEach(function(pg){
+      var a = document.createElement("a");
+      a.href = pg.file;
+      a.setAttribute("data-en", pg.en);
+      a.setAttribute("data-bg", pg.bg);
+      a.textContent = pg.en;
+      if(pg.file === cur) a.className = "active";
+      slot.appendChild(a);
+    });
+  }
+
+  /* ---------- i18n ---------- */
+  var lang = "en";
+  try { var saved = localStorage.getItem("walle-lang"); if(saved==="en"||saved==="bg") lang = saved; } catch(e){}
+
+  function applyLang(){
+    document.body.setAttribute("data-lang", lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-en]").forEach(function(el){
+      var v = el.getAttribute("data-"+lang);
+      if(v!=null) el.innerHTML = v;
+    });
+    document.querySelectorAll("[data-en-ph]").forEach(function(el){
+      var v = el.getAttribute("data-"+lang+"-ph");
+      if(v!=null) el.setAttribute("placeholder", v);
+    });
+    document.querySelectorAll("[data-setlang]").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-setlang")===lang);
+    });
+    try { localStorage.setItem("walle-lang", lang); } catch(e){}
+    document.dispatchEvent(new CustomEvent("walle:lang", {detail:{lang:lang}}));
+  }
+
+  function wireLang(){
+    document.querySelectorAll("[data-setlang]").forEach(function(b){
+      b.addEventListener("click", function(){ lang = b.getAttribute("data-setlang"); applyLang(); });
+    });
+  }
+
+  /* ---------- reveal (with fail-safe) ---------- */
+  function wireReveal(){
+    var reveals = document.querySelectorAll(".reveal");
+    function revealAll(){ reveals.forEach(function(el){ el.classList.add("in"); }); }
+    if("IntersectionObserver" in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+      }, {threshold:0.08, rootMargin:"0px 0px -8% 0px"});
+      reveals.forEach(function(el){ io.observe(el); });
+      setTimeout(revealAll, 1600);
+    } else { revealAll(); }
+  }
+
+  /* ---------- quiz engine ----------
+     Mount with: WalleQuiz(containerEl, {
+       kicker:{en,bg}, title:{en,bg},
+       questions:[{q:{en,bg}, opts:[{en,bg}...], correct:i, right:{en,bg}, wrong:{en,bg}}]
+     })
+  ----------------------------------- */
+  function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+
+  window.WalleQuiz = function(el, cfg){
+    var idx = 0, score = 0;
+    var UI = {
+      progress:{en:"Question", bg:"Въпрос"},
+      of:{en:"of", bg:"от"},
+      next:{en:"Next →", bg:"Напред →"},
+      done:{en:"See my result", bg:"Виж резултата"},
+      again:{en:"Play again", bg:"Играй пак"},
+      score:{en:"You got", bg:"Позна"},
+      outof:{en:"out of", bg:"от"}
+    };
+    function t(o){ return o[lang] || o.en; }
+
+    function finalLine(){
+      var n = cfg.questions.length;
+      var msgs = score===n
+        ? {en:"Perfect score. Honestly? Suspiciously good. 🏆", bg:"Пълно попадение. Чак подозрително добре. 🏆"}
+        : score >= Math.ceil(n/2)
+        ? {en:"Solid. You're harder to fool than most adults. 💪", bg:"Стабилно. Лъжеш се по-трудно от повечето възрастни. 💪"}
+        : {en:"Hey, that's why lessons exist. Run it back. 🔁", bg:"Е, затова има уроци. Пробвай пак. 🔁"};
+      return t(msgs);
+    }
+
+    function render(){
+      var html = '<div class="quiz-head">';
+      html += '<div class="quiz-kicker">'+esc(t(cfg.kicker))+'</div>';
+      html += '<h2>'+esc(t(cfg.title))+'</h2></div>';
+      html += '<div class="quiz-body">';
+      if(idx < cfg.questions.length){
+        var q = cfg.questions[idx];
+        html += '<div class="quiz-progress">'+esc(t(UI.progress))+' '+(idx+1)+' '+esc(t(UI.of))+' '+cfg.questions.length+'</div>';
+        html += '<div class="quiz-q">'+esc(t(q.q))+'</div>';
+        html += '<div class="quiz-opts">';
+        q.opts.forEach(function(o,i){
+          html += '<button type="button" class="quiz-opt" data-i="'+i+'">'+esc(t(o))+'</button>';
+        });
+        html += '</div><div class="quiz-feedback"></div>';
+      } else {
+        html += '<div class="quiz-q" style="font-family:var(--display);font-weight:800;font-size:24px;">'
+              + esc(t(UI.score))+' '+score+' '+esc(t(UI.outof))+' '+cfg.questions.length+'. '+esc(finalLine())
+              + '</div>';
+        html += '<button type="button" class="quiz-opt" data-again="1" style="max-width:220px;">'+esc(t(UI.again))+'</button>';
+      }
+      html += '</div>';
+      el.innerHTML = html;
+      wire();
+    }
+
+    function wire(){
+      var q = cfg.questions[idx];
+      el.querySelectorAll(".quiz-opt").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          if(btn.hasAttribute("data-again")){ idx=0; score=0; render(); return; }
+          var i = +btn.getAttribute("data-i");
+          var fb = el.querySelector(".quiz-feedback");
+          el.querySelectorAll(".quiz-opt").forEach(function(b){ b.disabled = true; });
+          if(i === q.correct){ score++; btn.classList.add("correct"); fb.textContent = "✓ " + t(q.right); }
+          else {
+            btn.classList.add("wrong");
+            var c = el.querySelector('.quiz-opt[data-i="'+q.correct+'"]');
+            if(c) c.classList.add("correct");
+            fb.textContent = "✗ " + t(q.wrong);
+          }
+          fb.classList.add("show");
+          var nx = document.createElement("button");
+          nx.type = "button"; nx.className = "quiz-opt"; nx.style.maxWidth = "180px"; nx.style.marginTop = "14px";
+          nx.textContent = (idx+1 < cfg.questions.length) ? t(UI.next) : t(UI.done);
+          nx.addEventListener("click", function(){ idx++; render(); });
+          el.querySelector(".quiz-body").appendChild(nx);
+        });
+      });
+    }
+
+    document.addEventListener("walle:lang", render);
+    render();
+  };
+
+  /* ---------- init ---------- */
+  buildNav();
+  wireLang();
+  applyLang();
+  wireReveal();
+})();
+
+</script>
+<script>
+WalleQuiz(document.getElementById("quiz"), {
+  kicker:{en:"Pop quiz · no pressure", bg:"Бърз тест · без напрежение"},
+  title:{en:"Which prompt wins?", bg:"Кой промпт печели?"},
+  questions:[
+    {
+      q:{en:"You need help studying for a biology test. Which prompt gets the best result?",
+         bg:"Трябва ти помощ за контролно по биология. Кой промпт дава най-добър резултат?"},
+      opts:[
+        {en:"“Help me with biology.”", bg:"„Помогни ми с биологията.“"},
+        {en:"“You're a friendly bio teacher. Quiz me on photosynthesis with 5 questions, easy to hard.”", bg:"„Ти си готин учител по биология. Изпитай ме върху фотосинтезата с 5 въпроса — от лесни към трудни.“"},
+        {en:"“Write everything about biology.”", bg:"„Напиши всичко за биологията.“"}
+      ],
+      correct:1,
+      right:{en:"Role + task + format. That's the recipe.", bg:"Роля + задача + формат. Това е рецептата."},
+      wrong:{en:"Too vague — AI will guess, and it'll guess boring.", bg:"Твърде общо — AI ще гадае, и резултатът ще е скучен."}
+    },
+    {
+      q:{en:"The first answer you get is mediocre. What do pros do?",
+         bg:"Получаваш посредствен отговор. Какво би направил професионалист?"},
+      opts:[
+        {en:"Give up — AI just isn't good at this", bg:"Отказва се — AI явно не става за това"},
+        {en:"Copy it anyway, who cares", bg:"Копира го както си е — и бездруго никой няма да забележи"},
+        {en:"Reply with what to change: 'shorter, funnier, give 3 versions'", bg:"Пише какво да се промени: „по-кратко, по-смешно, дай 3 варианта“"}
+      ],
+      correct:2,
+      right:{en:"Exactly. Iteration is the real skill.", bg:"Точно така. Итерацията е истинското умение."},
+      wrong:{en:"Nope — the magic happens in round 2 and 3.", bg:"Не — магията става във втория и третия рунд."}
+    }
+  ]
+});
+</script>
+</body>
+</html>

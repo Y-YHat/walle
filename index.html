@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Walle — AI for humans aged 15–18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1a1613;
+    --ink-soft:#4a423b;
+    --canvas:#f8f1e7;
+    --paper:#fffaf2;
+    --blue:#2f49ff;
+    --blue-deep:#1f31b8;
+    --pink:#ff4d8d;
+    --lime:#c6f53b;
+    --yellow:#ffc73a;
+    --line:rgba(26,22,19,0.14);
+    --shadow:8px 8px 0 var(--ink);
+    --shadow-sm:4px 4px 0 var(--ink);
+    --radius:22px;
+    --maxw:1180px;
+    --display:"Unbounded",system-ui,sans-serif;
+    --body:"Manrope",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    background:var(--canvas);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    line-height:1.5;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--lime);color:var(--ink);}
+
+  /* ---------- decorative background ---------- */
+  .bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.85;mix-blend-mode:multiply;}
+  .b1{width:520px;height:520px;background:var(--blue);top:-180px;right:-120px;animation:float1 16s ease-in-out infinite;}
+  .b2{width:360px;height:360px;background:var(--pink);top:38%;left:-150px;animation:float2 19s ease-in-out infinite;}
+  .b3{width:300px;height:300px;background:var(--lime);bottom:-120px;right:8%;animation:float1 22s ease-in-out infinite;}
+  @keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-40px,40px) scale(1.08);}}
+  @keyframes float2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(50px,-30px) scale(1.12);}}
+  .grain{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  main,header{position:relative;z-index:1;}
+
+  /* ---------- nav ---------- */
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgba(248,241,231,0.72);border-bottom:2px solid var(--ink);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:25px;letter-spacing:-.02em;}
+  .brand .mark{width:34px;height:34px;border-radius:50%;background:var(--blue);border:2px solid var(--ink);position:relative;flex:none;}
+  .brand .mark::before,.brand .mark::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--paper);top:11px;}
+  .brand .mark::before{left:7px;}
+  .brand .mark::after{right:7px;animation:blink 5s infinite;}
+  @keyframes blink{0%,92%,100%{transform:scaleY(1);}96%{transform:scaleY(.1);}}
+  .nav-links{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;flex-wrap:wrap;}
+  .nav-links a{display:inline-block;white-space:nowrap;font-family:var(--body);font-weight:700;font-size:13.5px;padding:7px 12px;border-radius:999px;border:2px solid transparent;transition:background .12s,border-color .12s;}
+  .nav-links a:hover{background:var(--yellow);border-color:var(--ink);}
+  .nav-right{display:flex;align-items:center;gap:14px;flex:none;}
+  .lang{display:flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden;background:var(--paper);font-family:var(--display);font-weight:600;font-size:13px;}
+  .lang button{border:0;background:transparent;padding:7px 13px;cursor:pointer;color:var(--ink);font:inherit;transition:background .15s;}
+  .lang button.active{background:var(--ink);color:var(--paper);}
+  .btn{font-family:var(--display);font-weight:700;cursor:pointer;border:2px solid var(--ink);border-radius:999px;display:inline-flex;align-items:center;gap:9px;transition:transform .12s ease,box-shadow .12s ease;}
+  .btn:active{transform:translate(2px,2px);}
+  .btn-primary{background:var(--blue);color:#fff;padding:12px 22px;font-size:15px;box-shadow:var(--shadow-sm);}
+  .btn-primary:hover{box-shadow:6px 6px 0 var(--ink);transform:translate(-1px,-1px);}
+  .btn-ghost{background:var(--paper);color:var(--ink);padding:12px 22px;font-size:15px;}
+  .btn-ghost:hover{background:var(--yellow);}
+  .nav .btn-primary{padding:10px 18px;font-size:14px;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:64px 0 30px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;background:var(--lime);border:2px solid var(--ink);border-radius:999px;padding:7px 16px 7px 12px;font-family:var(--display);font-weight:600;font-size:13px;box-shadow:var(--shadow-sm);transform:rotate(-1.5deg);}
+  .eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--ink);animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(.5);opacity:.4;}}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,7vw,82px);line-height:0.98;letter-spacing:-.03em;margin:24px 0 0;max-width:16ch;text-wrap:balance;}
+  h1 .hl{position:relative;white-space:nowrap;}
+  h1 .hl::after{content:"";position:absolute;left:-2%;right:-2%;bottom:6%;height:30%;background:var(--yellow);z-index:-1;transform:rotate(-1deg);}
+  .sub{font-size:clamp(17px,2vw,21px);color:var(--ink-soft);max-width:54ch;margin-top:26px;font-weight:500;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
+
+  /* ---------- demo ---------- */
+  .demo{margin:50px auto 0;background:var(--paper);border:2.5px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+  .demo-head{padding:30px 34px 22px;border-bottom:2px solid var(--ink);background:repeating-linear-gradient(135deg,transparent,transparent 18px,rgba(47,73,255,.04) 18px,rgba(47,73,255,.04) 36px);}
+  .demo-kicker{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);}
+  .demo-head h2{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.4vw,36px);line-height:1.02;letter-spacing:-.02em;margin-top:10px;}
+  .demo-head p{color:var(--ink-soft);margin-top:10px;font-weight:500;max-width:50ch;}
+  .demo-body{padding:26px 34px 34px;}
+  .input-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .input-row input{flex:1;min-width:200px;font-family:var(--body);font-weight:600;font-size:17px;padding:15px 18px;border:2px solid var(--ink);border-radius:14px;background:var(--canvas);color:var(--ink);outline:none;transition:box-shadow .12s;}
+  .input-row input:focus{box-shadow:var(--shadow-sm);background:#fff;}
+  .input-row .btn{padding:15px 26px;font-size:16px;background:var(--pink);color:#fff;box-shadow:var(--shadow-sm);}
+  .input-row .btn:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 var(--ink);}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;align-items:center;}
+  .chips .chips-label{font-size:13px;font-weight:700;color:var(--ink-soft);margin-right:2px;}
+  .chip{font-family:var(--body);font-weight:700;font-size:14px;padding:8px 15px;border:2px solid var(--ink);border-radius:999px;background:var(--paper);cursor:pointer;transition:transform .1s,background .12s;}
+  .chip:hover{background:var(--yellow);transform:translateY(-2px);}
+  .chip:active{transform:translateY(0);}
+
+  /* result */
+  .result{margin-top:24px;}
+  .thinking{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:600;color:var(--ink-soft);padding:8px 2px;}
+  .thinking .dots{display:flex;gap:6px;}
+  .thinking .dots span{width:11px;height:11px;border-radius:50%;background:var(--blue);animation:bounce 1.1s infinite;}
+  .thinking .dots span:nth-child(2){background:var(--pink);animation-delay:.15s;}
+  .thinking .dots span:nth-child(3){background:var(--lime);animation-delay:.3s;}
+  @keyframes bounce{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-9px);}}
+  .answer{border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--canvas);animation:pop .4s cubic-bezier(.2,1.3,.5,1) both;}
+  @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.97);}to{opacity:1;transform:none;}}
+  .answer-top{display:flex;align-items:center;gap:12px;padding:16px 22px;background:var(--blue);color:#fff;border-bottom:2px solid var(--ink);}
+  .answer-top .label{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;}
+  .answer-top .topic{font-family:var(--display);font-weight:800;font-size:20px;text-transform:capitalize;margin-left:auto;background:var(--yellow);color:var(--ink);padding:4px 14px;border-radius:999px;border:2px solid var(--ink);}
+  .answer-body{padding:22px 24px 24px;}
+  .answer-body h3{font-family:var(--display);font-weight:800;font-size:clamp(20px,2.6vw,27px);line-height:1.08;letter-spacing:-.02em;}
+  .answer-body ul{list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:12px;}
+  .answer-body li{display:flex;gap:12px;font-size:16px;font-weight:500;align-items:flex-start;}
+  .answer-body li::before{content:"";flex:none;width:14px;height:14px;margin-top:4px;background:var(--pink);border:2px solid var(--ink);border-radius:4px;transform:rotate(45deg);}
+  .answer-body li:nth-child(2)::before{background:var(--lime);}
+  .answer-body li:nth-child(3)::before{background:var(--blue);}
+  .kicker{margin-top:18px;padding:14px 18px;background:var(--paper);border:2px dashed var(--ink);border-radius:12px;font-family:var(--display);font-weight:600;font-size:15px;display:flex;gap:10px;align-items:center;}
+  .kicker .star{flex:none;color:var(--pink);font-size:18px;}
+  .answer-foot{margin-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .answer-foot .lesson{font-family:var(--display);font-weight:700;font-size:15px;color:var(--blue);display:inline-flex;align-items:center;gap:8px;cursor:pointer;}
+  .answer-foot .lesson .arr{transition:transform .15s;}
+  .answer-foot .lesson:hover .arr{transform:translateX(4px);}
+  .again{font-family:var(--body);font-weight:700;font-size:14px;color:var(--ink-soft);cursor:pointer;border:0;background:transparent;text-decoration:underline;text-underline-offset:3px;}
+
+  /* ---------- learn ---------- */
+  .learn{padding:90px 0 60px;}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:38px;}
+  .learn h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,4.6vw,52px);line-height:1;letter-spacing:-.03em;max-width:18ch;text-wrap:balance;}
+  .section-num{font-family:var(--display);font-weight:600;font-size:14px;color:var(--ink-soft);letter-spacing:.1em;}
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .card{border:2.5px solid var(--ink);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm);transition:transform .14s ease,box-shadow .14s ease;position:relative;overflow:hidden;min-height:200px;display:flex;flex-direction:column;}
+  .card:hover{transform:translate(-2px,-3px);box-shadow:7px 9px 0 var(--ink);}
+  .card .c-num{font-family:var(--display);font-weight:800;font-size:15px;opacity:.55;}
+  .card h3{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.04;letter-spacing:-.02em;margin-top:14px;}
+  .card p{margin-top:12px;font-weight:500;font-size:16px;max-width:34ch;}
+  .card .go{margin-top:auto;padding-top:16px;font-family:var(--display);font-weight:700;font-size:13.5px;display:inline-flex;align-items:center;gap:7px;}
+  .card .go .arr{transition:transform .15s;}
+  .card:hover .go .arr{transform:translateX(4px);}
+  .card .glyph{position:absolute;right:-14px;bottom:-14px;width:96px;height:96px;border:2px solid var(--ink);opacity:.9;}
+  .card.c1{background:var(--paper);}
+  .card.c1 .glyph{border-radius:50%;background:var(--blue);}
+  .card.c2{background:var(--lime);}
+  .card.c2 .glyph{border-radius:8px;background:var(--paper);transform:rotate(15deg);}
+  .card.c3{background:var(--pink);color:#fff;}
+  .card.c3 p{color:rgba(255,255,255,.92);}
+  .card.c3 .glyph{border-radius:50% 50% 50% 4px;background:var(--yellow);}
+  .card.c4{background:var(--yellow);}
+  .card.c4 .glyph{background:var(--blue);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);border:0;}
+
+  /* ---------- fine print teaser ---------- */
+  .catch{padding:80px 0 0;}
+  .catch-teaser{display:flex;align-items:center;gap:28px;flex-wrap:wrap;background:var(--ink);color:var(--paper);border:2.5px solid var(--ink);border-radius:30px;padding:clamp(28px,4.5vw,48px);position:relative;overflow:hidden;box-shadow:var(--shadow);transition:transform .14s,box-shadow .14s;}
+  .catch-teaser:hover{transform:translate(-2px,-3px);box-shadow:10px 11px 0 var(--blue);}
+  .catch-teaser::before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:var(--pink);top:-80px;right:-60px;opacity:.4;mix-blend-mode:screen;}
+  .catch-teaser .ct-body{flex:1;min-width:260px;position:relative;}
+  .catch-teaser .tag{display:inline-flex;align-items:center;gap:9px;background:var(--yellow);color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:7px 16px;font-family:var(--display);font-weight:700;font-size:13px;transform:rotate(-1.5deg);}
+  .catch-teaser h2{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.6vw,40px);line-height:1;letter-spacing:-.03em;margin:18px 0 0;max-width:20ch;text-wrap:balance;}
+  .catch-teaser .lede{color:rgba(255,250,242,.78);font-size:clamp(15px,1.7vw,17px);font-weight:500;max-width:52ch;margin-top:14px;}
+  .catch-teaser .quote{flex:none;width:230px;max-width:100%;background:var(--canvas);color:var(--ink);border:2px solid var(--ink);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-sm);transform:rotate(1.2deg);position:relative;}
+  .catch-teaser .quote .you{font-weight:700;font-size:13px;color:var(--ink-soft);}
+  .catch-teaser .quote .ai{font-family:var(--display);font-weight:700;font-size:15px;margin-top:6px;line-height:1.25;}
+  .catch-teaser .quote .ai .em{background:var(--pink);color:#fff;padding:0 5px;border-radius:5px;}
+  .catch-teaser .ct-arrow{font-family:var(--display);font-weight:800;font-size:32px;color:var(--lime);flex:none;position:relative;}
+
+  /* ---------- closing cta ---------- */
+  .closing{padding:30px 0 90px;}
+  .closing-inner{background:var(--ink);color:var(--paper);border-radius:30px;padding:clamp(40px,7vw,80px);text-align:center;position:relative;overflow:hidden;}
+  .closing-inner::before,.closing-inner::after{content:"";position:absolute;border-radius:50%;}
+  .closing-inner::before{width:200px;height:200px;background:var(--blue);top:-70px;left:-50px;opacity:.55;}
+  .closing-inner::after{width:160px;height:160px;background:var(--pink);bottom:-60px;right:-30px;opacity:.55;}
+  .closing h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,5.5vw,62px);line-height:1;letter-spacing:-.03em;position:relative;max-width:20ch;margin:0 auto;text-wrap:balance;}
+  .closing .btn{margin-top:34px;position:relative;background:var(--lime);color:var(--ink);padding:17px 34px;font-size:18px;box-shadow:5px 5px 0 var(--blue);}
+  .closing .btn:hover{box-shadow:7px 7px 0 var(--blue);transform:translate(-1px,-1px);}
+
+  /* ---------- footer ---------- */
+  footer{border-top:2px solid var(--ink);padding:40px 0;background:var(--paper);position:relative;z-index:1;}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+  .foot .f-brand{font-family:var(--display);font-weight:700;font-size:16px;}
+  .foot .f-note{font-size:14px;color:var(--ink-soft);font-weight:500;}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.3,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:760px){
+    .cards{grid-template-columns:1fr;}
+    .warn-grid{grid-template-columns:1fr;}
+    .warn.feature .quote{width:100%;}
+    .nav .btn-primary{display:none;}
+    .nav-links{display:none;}
+    .demo-head,.demo-body{padding-left:22px;padding-right:22px;}
+    .hero{padding-top:40px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body data-lang="en">
+  <div class="bg-layer" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="grain"></div>
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><span class="mark"></span>Walle</div>
+      <nav class="nav-links">
+        <a href="prompting.html" data-en="Prompting" data-bg="Промптинг">Prompting</a>
+        <a href="spot-the-fakes.html" data-en="Spot the fakes" data-bg="Разпознай фалшивото">Spot the fakes</a>
+        <a href="make-things.html" data-en="Make things" data-bg="Създавай">Make things</a>
+        <a href="ai-for-school.html" data-en="For school" data-bg="За училище">For school</a>
+        <a href="fine-print.html" data-en="The fine print" data-bg="Дребният шрифт">The fine print</a>
+      </nav>
+      <div class="nav-right">
+        <div class="lang" role="group" aria-label="Language">
+          <button data-setlang="en" class="active">EN</button>
+          <button data-setlang="bg">БГ</button>
+        </div>
+        <a href="#demo" class="btn btn-primary" data-en="Start learning" data-bg="Започни сега">Start learning</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow"><span class="dot"></span><span data-en="AI school for humans aged 15–18" data-bg="AI училище за тийнейджъри (15–18)">AI school for humans aged 15–18</span></span>
+        <h1 data-en="Everyone keeps talking about AI. Almost nobody's talking <span class='hl'>to you.</span>" data-bg="Всички говорят за AI. Почти никой не говори <span class='hl'>с теб.</span>">Everyone keeps talking about AI. Almost nobody's talking <span class="hl">to you.</span></h1>
+        <p class="sub" data-en="Walle is your no-nonsense, occasionally-funny guide to actually understanding AI — and using it for school, work, and whatever you're into. Free, in English and Bulgarian." data-bg="Walle ти помага наистина да разбереш AI — без заобикалки и с малко хумор — и да го ползваш за училище, за работа и за каквото ти е интересно. Безплатно, на български и на английски.">Walle is your no-nonsense, occasionally-funny guide to actually understanding AI — and using it for school, work, and whatever you're into. Free, in English and Bulgarian.</p>
+        <div class="hero-cta">
+          <a href="#demo" class="btn btn-primary" data-en="Start with one question" data-bg="Започни с един въпрос">Start with one question</a>
+          <a href="#learn" class="btn btn-ghost" data-en="What you'll learn" data-bg="Какво ще научиш">What you'll learn</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DEMO -->
+    <section class="wrap" id="demo" style="scroll-margin-top:90px;">
+      <div class="demo reveal">
+        <div class="demo-head">
+          <div class="demo-kicker" data-en="Try it · 10 seconds" data-bg="Пробвай · 10 секунди">Try it · 10 seconds</div>
+          <h2 data-en="Okay, let's make this personal." data-bg="Да поговорим за теб.">Okay, let's make this personal.</h2>
+          <p data-en="Tell us one thing you're actually into. We'll show you where AI is already hiding inside it." data-bg="Кажи ни едно нещо, което наистина те влече. Ще ти покажем къде в него вече се е настанил AI.">Tell us one thing you're actually into. We'll show you where AI is already hiding inside it.</p>
+        </div>
+        <div class="demo-body">
+          <form class="input-row" id="demo-form" autocomplete="off">
+            <input id="demo-input" type="text" data-en-ph="e.g. football, music, drawing…" data-bg-ph="напр. футбол, музика, рисуване…" placeholder="e.g. football, music, drawing…" aria-label="What are you into?" />
+            <button type="submit" class="btn" data-en="Show me" data-bg="Покажи ми">Show me</button>
+          </form>
+          <div class="chips" id="chips">
+            <span class="chips-label" data-en="Or pick one:" data-bg="Или избери:">Or pick one:</span>
+          </div>
+          <div class="result" id="result" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARN -->
+    <section class="learn" id="learn" style="scroll-margin-top:80px;">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 data-en="What you'll actually get out of this" data-bg="Какво ще ти остане от всичко това">What you'll actually get out of this</h2>
+          <span class="section-num">/ 04</span>
+        </div>
+        <div class="cards">
+          <a class="card c1 reveal" href="prompting.html">
+            <span class="c-num">01</span>
+            <h3 data-en="Talk to AI like you mean it" data-bg="Говори с AI така, че да те разбере">Talk to AI like you mean it</h3>
+            <p data-en="Prompting is a real skill. We'll make you annoyingly good at it." data-bg="Промптингът е истинско умение. Ще станеш толкова добър, че ще дразниш.">Prompting is a real skill. We'll make you annoyingly good at it.</p>
+            <span class="go"><span data-en="Start the lesson" data-bg="Към урока">Start the lesson</span> <span class="arr">→</span></span>
+            <span class="glyph"></span>
+          </a>
+          <a class="card c2 reveal" href="spot-the-fakes.html">
+            <span class="c-num">02</span>
+            <h3 data-en="Spot the fakes" data-bg="Разпознай фалшивото">Spot the fakes</h3>
+            <p data-en="Deepfakes, hallucinations, and confident nonsense — learn to catch them." data-bg="Дийпфейкове, халюцинации и уверено изречени глупости — научи се да ги хващаш от пръв поглед.">Deepfakes, hallucinations, and confident nonsense — learn to catch them.</p>
+            <span class="go"><span data-en="Start the lesson" data-bg="Към урока">Start the lesson</span> <span class="arr">→</span></span>
+            <span class="glyph"></span>
+          </a>
+          <a class="card c3 reveal" href="make-things.html">
+            <span class="c-num">03</span>
+            <h3 data-en="Make actual things" data-bg="Създавай истински неща">Make actual things</h3>
+            <p data-en="Art, music, code, video. Go from idea to 'whoa, I made that.'" data-bg="Изкуство, музика, код, видео. От идеята до „уау, аз направих това!“.">Art, music, code, video. Go from idea to 'whoa, I made that.'</p>
+            <span class="go"><span data-en="Start the lesson" data-bg="Към урока">Start the lesson</span> <span class="arr">→</span></span>
+            <span class="glyph"></span>
+          </a>
+          <a class="card c4 reveal" href="ai-for-school.html">
+            <span class="c-num">04</span>
+            <h3 data-en="Use it for school, honestly" data-bg="Ползвай го за училище — честно">Use it for school, honestly</h3>
+            <p data-en="Learn faster — without cheating yourself out of actually learning." data-bg="Учи по-бързо — но така, че наистина да ти остане нещо в главата.">Learn faster — without cheating yourself out of actually learning.</p>
+            <span class="go"><span data-en="Start the lesson" data-bg="Към урока">Start the lesson</span> <span class="arr">→</span></span>
+            <span class="glyph"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINE PRINT TEASER -->
+    <section class="catch" id="watch-out" style="scroll-margin-top:80px;">
+      <div class="wrap">
+        <a class="catch-teaser reveal" href="fine-print.html">
+          <div class="ct-body">
+            <span class="tag" data-en="⚠ Read the fine print" data-bg="⚠ Прочети дребния шрифт">⚠ Read the fine print</span>
+            <h2 data-en="AI is powerful. It's also not your friend." data-bg="AI е мощен. Но не ти е приятел.">AI is powerful. It's also not your friend.</h2>
+            <p class="lede" data-en="Sycophancy, hallucinations, bias, privacy — 5 things to know before you trust it. 4-minute read." data-bg="Подмазване, халюцинации, предразсъдъци, лични данни — пет неща, които е добре да знаеш, преди да му се довериш. Четене за 4 минути.">Sycophancy, hallucinations, bias, privacy — 5 things to know before you trust it. 4-minute read.</p>
+          </div>
+          <div class="quote" aria-hidden="true">
+            <div class="you" data-en="You: Actually I think 7×8 = 54." data-bg="Ти: Всъщност мисля, че 7×8 = 54.">You: Actually I think 7×8 = 54.</div>
+            <div class="ai" data-en="AI: <span class='em'>You're absolutely right!</span> My mistake 🙃" data-bg="AI: <span class='em'>Напълно си прав!</span> Моя грешка 🙃">AI: <span class="em">You're absolutely right!</span> My mistake 🙃</div>
+          </div>
+          <span class="ct-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing">
+      <div class="wrap">
+        <div class="closing-inner reveal">
+          <h2 data-en="Your future's going to be full of this stuff. Let's get you ready." data-bg="Бъдещето ти ще е пълно с AI. Нека те подготвим за него.">Your future's going to be full of this stuff. Let's get you ready.</h2>
+          <a href="prompting.html" class="btn" data-en="Start lesson 01 — it's free" data-bg="Започни урок 01 — безплатно е">Start lesson 01 — it's free</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="f-brand"><span data-en="Walle · AI literacy for students in Bulgaria" data-bg="Walle · AI грамотност за ученици в България">Walle · AI literacy for students in Bulgaria</span></div>
+      <div class="f-note" data-en="Made with caffeine and good intentions." data-bg="Направено с кофеин и добри намерения.">Made with caffeine and good intentions.</div>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- demo knowledge base ---------- */
+  var DB = [
+    { id:"football", keys:["football","soccer","футбол","sport football","goalkeeper"],
+      en:{topic:"football", title:"Football is basically a data sport now.",
+        bullets:["AI tracks every run and pass to build the tactics coaches use on match day.","The offside calls you scream at? Powered by AI vision tech."],
+        kicker:"VAR is just AI with trust issues."},
+      bg:{topic:"футбол", title:"Във футбола вече всичко минава през данни.",
+        bullets:["AI проследява всяко движение и всяко подаване — на тази база треньорите градят тактиките си.","Засадата, за която крещиш на екрана? Отсъдена с помощта на AI камери."],
+        kicker:"ВАР? Просто AI, на който никой на стадиона не вярва."}},
+    { id:"music", keys:["music","song","музика","песен","producer","spotify","beats","beat"],
+      en:{topic:"music", title:"AI is already in your headphones.",
+        bullets:["It masters tracks, splits any song into stems, and helps produce hits from a bedroom.","Your 'Made For You' playlist? An AI that knows your taste scarily well."],
+        kicker:"Your next favorite artist was probably recommended by a model."},
+      bg:{topic:"музика", title:"AI вече е в слушалките ти.",
+        bullets:["Мастерира парчета, разделя песните на отделни инструменти и помага хитове да се раждат направо в нечия стая.","Плейлистът „Made For You“? Зад него стои AI, който познава вкуса ти плашещо добре."],
+        kicker:"Следващия си любим изпълнител вероятно ще го откриеш благодарение на алгоритъм."}},
+    { id:"gaming", keys:["game","gaming","games","гейминг","игри","видео игри","esports","minecraft","fortnite"],
+      en:{topic:"gaming", title:"Games are where AI grew up.",
+        bullets:["It runs enemy behavior, upscales old graphics, and is starting to generate whole levels.","Studios now prototype entire worlds with AI before building them for real."],
+        kicker:"The boss that adapts to how you play? Yeah, that's the point."},
+      bg:{topic:"гейминг", title:"AI буквално израсна в игрите.",
+        bullets:["Управлява враговете, подмладява старата графика и вече започва да генерира цели нива.","Студията първо скицират цели светове с AI и чак след това ги строят наистина."],
+        kicker:"Босът, който се учи как играеш? Не ти се привижда — наистина го прави."}},
+    { id:"art", keys:["art","drawing","draw","paint","painting","изкуство","рисуване","рисунка","design","дизайн","illustration"],
+      en:{topic:"art", title:"Artists use AI as a sketchbook on steroids.",
+        bullets:["Concept artists explore 50 versions of an idea before lunch.","It colors, restyles, and remixes — but the taste stays 100% human."],
+        kicker:"We'll also dig into the messy ethics debate. It's a big one."},
+      bg:{topic:"изкуство", title:"Художниците ползват AI като скицник на стероиди.",
+        bullets:["Концепт художниците пробват по 50 версии на една идея още преди обяд.","AI оцветява, сменя стилове и ремиксира — но вкусът си остава изцяло човешки."],
+        kicker:"Ще поговорим и за етичните спорове — а те никак не са малко."}},
+    { id:"social", keys:["tiktok","тикток","instagram","инстаграм","social","реелс","reels","youtube","ютуб","snapchat","scrolling"],
+      en:{topic:"the For You page", title:"The For You page is the AI you use most.",
+        bullets:["It predicts what'll keep you watching with unsettling accuracy.","Every scroll trains it to know you a little better."],
+        kicker:"Understanding how it works is basically self-defense."},
+      bg:{topic:"For You страницата", title:"„For You“ страницата е AI-ят, който ползваш най-много.",
+        bullets:["Предсказва с плашеща точност какво ще те задържи пред екрана.","С всяко превъртане го учиш да те познава още по-добре."],
+        kicker:"Да знаеш как работи си е форма на самозащита."}},
+    { id:"coding", keys:["code","coding","programming","програмиране","код","developer","python","software","app"],
+      en:{topic:"coding", title:"AI codes with you now — not instead of you.",
+        bullets:["It writes, explains, and debugs alongside you; beginners ship real apps fast.","Knowing how to direct it is becoming a superpower of its own."],
+        kicker:"You can build more than you think, knowing less than you'd expect."},
+      bg:{topic:"програмиране", title:"AI вече пише код заедно с теб, а не вместо теб.",
+        bullets:["Пише, обяснява и оправя грешки в движение — затова дори начинаещи стигат бързо до работещи приложения.","Умението да го насочваш се превръща в суперсила сама по себе си."],
+        kicker:"Трябват ти по-малко знания, отколкото си мислиш, за да направиш повече, отколкото очакваш."}},
+    { id:"medicine", keys:["medicine","doctor","медицина","лекар","здраве","health","nurse","biology","биология"],
+      en:{topic:"medicine", title:"Future doctors will work with AI every day.",
+        bullets:["It spots tumors on scans that humans can miss.","It's cutting drug discovery from years down to months."],
+        kicker:"It won't replace doctors — but doctors who use it will replace those who don't."},
+      bg:{topic:"медицина", title:"Бъдещите лекари ще работят с AI всеки ден.",
+        bullets:["Открива тумори на снимки, които човешкото око може да пропусне.","Смъква времето за откриване на нови лекарства от години на месеци."],
+        kicker:"Няма да замени лекарите — но лекарите, които го ползват, ще заменят тези, които не го ползват."}},
+    { id:"space", keys:["space","astronomy","космос","астрономия","звезди","stars","planets","планети","nasa","physics","физика"],
+      en:{topic:"space", title:"AI is mapping the universe faster than we can look.",
+        bullets:["It sifts telescope data to find planets around other stars.","It classifies galaxies in seconds — work that took humans years."],
+        kicker:"The next big discovery might come from a model nobody told to look."},
+      bg:{topic:"космос", title:"AI картографира Вселената по-бързо, отколкото успяваме да я разглеждаме.",
+        bullets:["Преравя данни от телескопи, за да открива планети около други звезди.","Класифицира галактики за секунди — работа, която преди отнемаше години."],
+        kicker:"Следващото голямо откритие може да го направи модел, когото никой не е молил да търси."}},
+    { id:"fitness", keys:["fitness","gym","фитнес","тренировка","workout","running","бягане","football training"],
+      en:{topic:"fitness", title:"Your trainer might be an algorithm soon.",
+        bullets:["AI builds plans that adapt to how you actually progress.","It counts your reps and checks your form straight from a camera."],
+        kicker:"No judgment, infinite patience, available at 6am."},
+      bg:{topic:"фитнес", title:"Скоро треньорът ти може да е алгоритъм.",
+        bullets:["AI съставя програми, които се нагаждат към реалния ти напредък.","Брои ти повторенията и следи техниката ти само през камерата."],
+        kicker:"Не съди, не се изморява и е насреща дори в 6 сутринта."}},
+    { id:"writing", keys:["writing","write","books","писане","книги","story","истории","journalism","poetry","поезия"],
+      en:{topic:"writing", title:"AI is the brainstorm partner that never gets tired.",
+        bullets:["It beats writer's block, edits, and untangles messy drafts.","Used right, it sharpens your voice instead of replacing it."],
+        kicker:"We'll teach you to keep it sounding like you."},
+      bg:{topic:"писане", title:"AI е партньорът за идеи, който никога не се уморява.",
+        bullets:["Спасява от писателски блокаж, редактира и разплита и най-обърканите чернови.","Използваш ли го умно, той подсилва твоя глас, вместо да го заменя."],
+        kicker:"Ще те научим текстът пак да звучи като теб."}},
+    { id:"fashion", keys:["fashion","мода","clothes","дрехи","style","облекло","makeup"],
+      en:{topic:"fashion", title:"Fashion is getting an AI makeover.",
+        bullets:["It generates patterns, predicts next season's trends, and designs collections.","Virtual try-ons let you 'wear' clothes before they even exist."],
+        kicker:"The trend you'll wear next year is probably in a model right now."},
+      bg:{topic:"мода", title:"AI преобразява и модата.",
+        bullets:["Генерира десени, предсказва трендовете и създава колекции.","С виртуална пробна „обличаш“ дрехи, които още не съществуват."],
+        kicker:"Това, което ще носиш догодина, вероятно вече се крие в някой модел."}},
+    { id:"cars", keys:["car","cars","driving","коли","кола","шофиране","auto","tesla","racing","картинг"],
+      en:{topic:"cars", title:"Cars are turning into computers on wheels.",
+        bullets:["AI is the brain behind self-driving and the safety systems already in cars.","It reads the road and reacts faster than any human can."],
+        kicker:"The car of your twenties will probably drive better than most people."},
+      bg:{topic:"коли", title:"Колите се превръщат в компютри на колела.",
+        bullets:["AI е мозъкът зад автономното шофиране и системите за безопасност в колите днес.","Чете пътя и реагира по-бързо от всеки човек."],
+        kicker:"Когато си на двайсет и няколко, колата ти вероятно ще шофира по-добре от повечето хора."}}
+  ];
+
+  var FALLBACK = {
+    en:{topic:"that", title:"Whatever you're into, AI's already in it.",
+      bullets:["It's quietly making your thing faster, weirder, or way more powerful.","Which is exactly why it's worth understanding before everyone else does."],
+      kicker:"Let's go find out where — together."},
+    bg:{topic:"това", title:"С каквото и да се занимаваш, AI вече е там.",
+      bullets:["Тихомълком прави твоето нещо по-бързо, по-странно или в пъти по-мощно.","Точно затова си заслужава да го разбереш преди всички останали."],
+      kicker:"Ела да открием къде — заедно."}
+  };
+
+  var CHIPS = [
+    {id:"football", en:"Football", bg:"Футбол"},
+    {id:"music", en:"Music", bg:"Музика"},
+    {id:"gaming", en:"Gaming", bg:"Гейминг"},
+    {id:"art", en:"Art", bg:"Изкуство"},
+    {id:"social", en:"TikTok", bg:"TikTok"},
+    {id:"coding", en:"Coding", bg:"Програмиране"},
+    {id:"medicine", en:"Medicine", bg:"Медицина"},
+    {id:"space", en:"Space", bg:"Космос"},
+    {id:"fitness", en:"Fitness", bg:"Фитнес"},
+    {id:"writing", en:"Writing", bg:"Писане"}
+  ];
+
+  var UI = {
+    thinking:{en:"Walle is thinking…", bg:"Walle мисли…"},
+    label:{en:"Where AI lives in", bg:"Къде се крие AI"},
+    lesson:{en:"There's a whole lesson on this", bg:"Има цял урок за това"},
+    again:{en:"Try another", bg:"Пробвай друго"}
+  };
+
+  /* ---------- state ---------- */
+  var lang = "en";
+  try { var saved = localStorage.getItem("walle-lang"); if(saved==="en"||saved==="bg") lang = saved; } catch(e){}
+  var lastResult = null; // {data} currently shown topic
+
+  /* ---------- i18n ---------- */
+  function applyLang(){
+    document.body.setAttribute("data-lang", lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-en]").forEach(function(el){
+      var v = el.getAttribute("data-"+lang);
+      if(v!=null) el.innerHTML = v;
+    });
+    document.querySelectorAll("[data-en-ph]").forEach(function(el){
+      var v = el.getAttribute("data-"+lang+"-ph");
+      if(v!=null) el.setAttribute("placeholder", v);
+    });
+    document.querySelectorAll("[data-setlang]").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-setlang")===lang);
+    });
+    buildChips();
+    if(lastResult) renderAnswer(lastResult, true);
+    try { localStorage.setItem("walle-lang", lang); } catch(e){}
+  }
+
+  document.querySelectorAll("[data-setlang]").forEach(function(b){
+    b.addEventListener("click", function(){ lang = b.getAttribute("data-setlang"); applyLang(); });
+  });
+
+  /* ---------- chips ---------- */
+  function buildChips(){
+    var box = document.getElementById("chips");
+    box.querySelectorAll(".chip").forEach(function(c){ c.remove(); });
+    CHIPS.forEach(function(c){
+      var el = document.createElement("button");
+      el.type = "button";
+      el.className = "chip";
+      el.textContent = c[lang];
+      el.addEventListener("click", function(){
+        document.getElementById("demo-input").value = c[lang];
+        run(c.id);
+      });
+      box.appendChild(el);
+    });
+  }
+
+  /* ---------- matching ---------- */
+  function findMatch(raw){
+    var q = (raw||"").toLowerCase().trim();
+    if(!q) return null;
+    for(var i=0;i<DB.length;i++){
+      var keys = DB[i].keys;
+      for(var j=0;j<keys.length;j++){
+        var k = keys[j];
+        if(q===k || q.indexOf(k)!==-1 || (k.length>3 && k.indexOf(q)!==-1)) return DB[i];
+      }
+    }
+    return null;
+  }
+
+  /* ---------- render ---------- */
+  function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+
+  function renderAnswer(entry, instant){
+    var data = entry ? entry[lang] : FALLBACK[lang];
+    var box = document.getElementById("result");
+    var bullets = data.bullets.map(function(b){ return "<li>"+esc(b)+"</li>"; }).join("");
+    var html =
+      '<div class="answer"'+(instant?' style="animation:none"':'')+'>'+
+        '<div class="answer-top">'+
+          '<span class="label">'+esc(UI.label[lang])+'</span>'+
+          '<span class="topic">'+esc(data.topic)+'</span>'+
+        '</div>'+
+        '<div class="answer-body">'+
+          '<h3>'+esc(data.title)+'</h3>'+
+          '<ul>'+bullets+'</ul>'+
+          '<div class="kicker"><span class="star">✦</span><span>'+esc(data.kicker)+'</span></div>'+
+          '<div class="answer-foot">'+
+            '<span class="lesson">'+esc(UI.lesson[lang])+' <span class="arr">→</span></span>'+
+            '<button type="button" class="again" id="again-btn">'+esc(UI.again[lang])+'</button>'+
+          '</div>'+
+        '</div>'+
+      '</div>';
+    box.innerHTML = html;
+    var ab = document.getElementById("again-btn");
+    if(ab) ab.addEventListener("click", function(){
+      lastResult = null;
+      box.innerHTML = "";
+      var inp = document.getElementById("demo-input");
+      inp.value = ""; inp.focus();
+    });
+  }
+
+  function run(forceId){
+    var input = document.getElementById("demo-input");
+    var entry = forceId ? DB.filter(function(d){return d.id===forceId;})[0] : findMatch(input.value);
+    lastResult = entry || null;
+    var box = document.getElementById("result");
+    box.innerHTML = '<div class="thinking"><span>'+esc(UI.thinking[lang])+'</span><span class="dots"><span></span><span></span><span></span></span></div>';
+    var delay = 650 + Math.random()*350;
+    setTimeout(function(){ renderAnswer(lastResult, false); }, delay);
+  }
+
+  document.getElementById("demo-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    if(!document.getElementById("demo-input").value.trim()) return;
+    run(null);
+  });
+
+  /* ---------- scroll reveal (with fail-safe so content is never stuck hidden) ---------- */
+  var reveals = document.querySelectorAll(".reveal");
+  function revealAll(){ reveals.forEach(function(el){ el.classList.add("in"); }); }
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, {threshold:0.08, rootMargin:"0px 0px -8% 0px"});
+    reveals.forEach(function(el){ io.observe(el); });
+    // Guarantee: if the observer never fires (non-scrollable/embedded contexts), show everything.
+    setTimeout(revealAll, 1600);
+  } else {
+    revealAll();
+  }
+
+  /* ---------- init ---------- */
+  applyLang();
+})();
+</script>
+</body>
+</html>
